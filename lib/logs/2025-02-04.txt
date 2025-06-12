@@ -1,0 +1,19 @@
+Time : 17:08:13
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 17:07:34
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 16:59:47
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 16:59:46
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 16:59:41
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC

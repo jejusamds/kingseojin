@@ -1,0 +1,7 @@
+Time : 18:07:51
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 't1.f_comment' in 'where clause'
+Raw SQL : 	Select	COUNT(*) 	From	df_site_best_review 	Where	1 = 1  And REPLACE(t1.f_comment,'-','') Like '%테스트%' 
+
+Time : 10:42:15
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile_name' in 'field list'
+Raw SQL : Insert into df_site_best_review    Set       f_point         = '3'            , f_like_cnt        = '121'            , f_comment        = 'dfgdfgsdfsdfsdfsdfsdfsdfsdfsdfdfgdfgsdfsdfsdfsdfsdfsdfsdfsdfdfgdfgsdfsdfsdfsdfsdfsdfsdfsdfdfgdfgsdfsdfsdfsdfsdfsdfsdfsdf'            , upfile_name   = 'imggggggggg - 복사본.jpg'            , f_date          = '2024.08.01'            , f_reviewer      = '234sdfsdg'            , showset       = 'Y' 	        , prior         = '240802104215'            , wdate         = NOW()  ;

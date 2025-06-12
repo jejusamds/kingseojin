@@ -1,0 +1,3 @@
+Time : 17:21:14
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : SELECT * FROM df_site_board_enjoy where gubun = :gubun order by idx desc

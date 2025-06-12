@@ -1,0 +1,82 @@
+Time : 17:07:55
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_shop_reserve' doesn't exist
+Raw SQL : Insert into df_shop_reserve 	Set		memid		= '' 	,		reservemsg	= '[관리자 리뷰삭제] 포인트 차감' 	,		reserve		= '-500' 	,		orderid		= '' 	,		prdcode		= '' 	,		wdate		= NOW()
+
+Time : 13:55:31
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f_updated' in 'field list'
+Raw SQL : UPDATE df_site_category
+          SET f_name = :name,
+              f_updated = NOW()
+          WHERE f_idx = :id
+
+Time : 13:52:10
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:51:47
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:51:42
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:50:36
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:50:29
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:49:50
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:46:42
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:44:58
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:39:15
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f_updated' in 'field list'
+Raw SQL : UPDATE df_site_category
+          SET f_name = :name,
+              f_updated = NOW()
+          WHERE f_idx = :id
+
+Time : 13:37:47
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:37:37
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f_updated' in 'field list'
+Raw SQL : UPDATE df_site_category
+          SET f_name = :name,
+              f_updated = NOW()
+          WHERE f_idx = :id
+
+Time : 13:37:22
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f_updated' in 'field list'
+Raw SQL : UPDATE df_site_category
+          SET f_name = :name,
+              f_updated = NOW()
+          WHERE f_idx = :id
+
+Time : 13:36:04
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:35:55
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : DELETE FROM df_site_category WHERE f_idx IN (?)
+
+Time : 13:35:52
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'f_updated' in 'field list'
+Raw SQL : UPDATE df_site_category
+          SET f_name = :name,
+              f_updated = NOW()
+          WHERE f_idx = :id

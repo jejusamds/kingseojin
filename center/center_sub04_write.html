@@ -1,0 +1,349 @@
+<?php
+$Menu = "04";
+$sMenu = "04-4";
+
+include $_SERVER['DOCUMENT_ROOT'] . '/include/header.html';
+
+$code = 'inquiry';
+
+if (!empty($idx)) {
+    $mode = "update";
+
+    if ($idx < 1) {
+        echo "<script>alert('잘못된 접근입니다.');history.back();</script>";
+        exit;
+    }
+
+    $sql = "
+        SELECT 
+            idx,
+            code,
+            name,
+            subject,
+            content,
+            DATE_FORMAT(wdate, '%Y.%m.%d') AS date_fmt,
+            privacy,
+            wdate
+        FROM df_site_bbs
+        WHERE code = :code AND idx = :idx
+    ";
+    $db->bind('code', $code);
+    $db->bind('idx', $idx);
+    $rows = $db->query($sql);
+    if (!$rows) {
+        echo "<script>alert('해당 글이 존재하지 않습니다.');history.back();</script>";
+        exit;
+    }
+
+    $row = $rows[0];
+
+    // 비밀 글인 경우 이전페이지에서 비밀번호 검증이 이루어 졌는지 확인해야함.
+    if (empty($_SESSION['bbs_auth'][$idx])) {
+        //error('잘못된 접근입니다.');
+        echo "<script>location.href='center_sub04_auth.html?idx=" . $idx . "&mode=update'</script>";
+        exit;
+    }
+    unset($_SESSION['bbs_auth'][$idx]);
+
+    $val_subject = $row['subject'];
+    $val_content = $row['content'];
+    $val_wdate = date('Y.m.d', strtotime($row['wdate']));
+    $val_name = $row['name'];
+    $val_privacy = $row['privacy'];
+
+    $db->bind('bbsidx', $idx);
+    $files = $db->query("
+            SELECT upfile, upfile_name
+            FROM df_site_bbs_files
+            WHERE bbsidx = :bbsidx
+            ORDER BY idx ASC
+        ");
+} else {
+    $mode = "submit";
+    $val_subject = '';
+    $val_content = '';
+    $val_wdate = date("Y.m.d");
+    $val_name = '';
+    $val_privacy = 'N';
+}
+?>
+
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <?php
+            include $_SERVER['DOCUMENT_ROOT'] . '/include/sub_tr.html';
+            ?>
+
+            <div class="contents_con">
+
+                <form id="contact_frm" autocomplete="off" action="/controller/inquiry_process.php" method="post">
+                    <input type="hidden" name="f_honey" value="" />
+                    <input type="hidden" name="mode" value="<?= $mode ?>" />
+                    <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>" />
+                    <input type="hidden" name="code" value="<?= $code ?>">
+                    <input type="hidden" name="idx" value="<?= $idx ?>">
+
+                    <input type="hidden" name="privacy" value="Y">
+
+                    <div class="notice_write_con">
+                        <div class="input_con">
+                            <ul>
+                                <li>
+                                    <div class="list_div title">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="info_td">
+                                                        <div class="input_con">
+                                                            <input type="text" placeholder="제목을 입력하세요." class="input" value="<?=$val_subject?>"
+                                                                data-required="y" data-label="제목을" name="subject"
+                                                                id="subject" />
+                                                        </div>
+
+                                                        <div class="date_con m_con">
+                                                            <span>
+                                                                <?= $val_wdate ?>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                    <td align="center" class="date_td">
+                                                        <span>
+                                                            <?= $val_wdate ?>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_div textarea">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="info_td">
+                                                        <div class="textarea_con">
+                                                            <textarea name="content" id="content"
+                                                                placeholder="내용을 입력하세요." data-required="y"
+                                                                data-label="내용을" class="textarea"><?=$val_content?></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_div file">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="title_td">
+                                                        <img src="/img/sub/notice_file_icon.svg" alt="파일 아이콘"
+                                                            class="fx" />
+
+                                                        <span>
+                                                            첨부파일
+                                                        </span>
+                                                    </td>
+                                                    <td align="left" class="info_td">
+                                                        <div class="file_con">
+                                                            <div class="btn_con">
+                                                                <label>
+                                                                    <span>
+                                                                        파일선택
+                                                                    </span>
+                                                                    <input type="file" name="upfile" class="input"
+                                                                        onchange="file_upload(this.value)" />
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="input_con">
+                                                                <input type="text" name="upfile_name"
+                                                                    class="file_upload input" readonly="readonly" />
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list_div fl">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="title_td">
+                                                        <span>
+                                                            작성자
+                                                        </span>
+                                                    </td>
+                                                    <td align="left" class="info_td">
+                                                        <input type="text" name="name" id="name" value="<?=$val_name?>"
+                                                            placeholder="작성자명을 입력하세요." data-required="y"
+                                                            data-label="작성자명을" class="input" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+
+                                    <div class="list_div fr">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="title_td">
+                                                        <span>
+                                                            비밀번호
+                                                        </span>
+                                                    </td>
+                                                    <td align="left" class="info_td">
+                                                        <input type="password" name="passwd" id="passwd"
+                                                            placeholder="비밀번호를 입력하세요." class="input" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <div class="list_div fl">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="title_td">
+                                                        <span>
+                                                            공개여부
+                                                        </span>
+                                                    </td>
+                                                    <td align="left" class="info_td">
+                                                        <div class="release_con">
+                                                            <ul>
+                                                                <li>
+                                                                    <label class="radio_label">
+                                                                        <input type="radio" name="release_type"
+                                                                            value="공개" checked="checked" />
+                                                                        <div class="check_icon"></div>
+                                                                        <span>
+                                                                            공개
+                                                                        </span>
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="radio_label">
+                                                                        <input type="radio" name="release_type"
+                                                                            value="비공개" />
+                                                                        <div class="check_icon"></div>
+                                                                        <span>
+                                                                            비공개
+                                                                        </span>
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="bar"></div>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+
+                        <div class="btn_con">
+                            <a href="/center/center_sub04.html" class="a_btn a_btn01">
+                                목록
+                            </a>
+
+                            <a href="javascript:void(0);" onclick="submitForm('contact_frm');" class="a_btn a_btn02">
+                                작성하기
+                            </a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/form-controller.js"></script>
+<script type="text/javascript" language="javascript">
+    // 첨부파일
+    function file_upload(val) {
+        $(".notice_write_con > .input_con > ul > li .list_div .file_con > .input_con .input").val(val).focus();
+
+        if ($(".notice_write_con > .input_con > ul > li .list_div .file_con > .input_con .input").val() != "") {
+            $(".notice_write_con > .input_con > ul > li .list_div .file_con > .input_con").show();
+        } else {
+            $(".notice_write_con > .input_con > ul > li .list_div .file_con > .input_con").hide();
+        }
+    }
+</script>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        gsap.registerPlugin(ScrollTrigger, CustomEase);
+
+        setTimeout(function () {
+            // .notice_write_con 애니메이션을 기록할 변수
+            let notice_write = null;
+
+            // #brandstory_sub01_info01 애니메이션
+            gsap.to(".notice_write_con", {
+                scrollTrigger: {
+                    trigger: ".notice_write_con",
+                    start: "top center",
+                    end: "bottom center",
+                    onEnter: () => {
+                        // 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+                        if (!notice_write) {
+                            // 타임라인 생성
+                            notice_write = gsap.timeline();
+
+                            //
+                            notice_write.to(".notice_write_con > .input_con, .notice_write_con > .btn_con", {
+                                opacity: "1",
+                                translateY: 0,
+                                ease: "ease",
+                                duration: 0.8,
+                                stagger: {
+                                    each: 0.2,
+                                    from: "start",
+                                },
+                            });
+                        }
+                    },
+                    onLeaveBack: () => {
+                        // 실행 중인 애니메이션 중지 및 초기화
+                        if (notice_write) {
+                            notice_write.kill();
+                            notice_write = null;
+                        }
+                    },
+                    //markers: true,
+                },
+            });
+        }, 500);
+
+        ScrollTrigger.refresh();
+    });
+</script>
+
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.html';
+?>

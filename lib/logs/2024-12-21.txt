@@ -1,0 +1,19 @@
+Time : 05:13:23
+SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared
+Raw SQL : select * from df_counter_ip where ci_code='' and ci_pm='M' and ci_ip='49.109.141.52' and ci_yy='24' and ci_mm='12' and ci_dd='21' and ci_hh='05'
+
+Time : 05:13:22
+SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared
+Raw SQL : select * from df_counter_ip where ci_code='' and ci_pm='M' and ci_ip='49.109.141.52' and ci_yy='24' and ci_mm='12' and ci_dd='21' and ci_hh='05'
+
+Time : 05:10:42
+SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared
+Raw SQL : select * from df_counter_ip where ci_code='' and ci_pm='M' and ci_ip='106.146.194.242' and ci_yy='24' and ci_mm='12' and ci_dd='21' and ci_hh='05'
+
+Time : 05:10:42
+SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared
+Raw SQL : select * from df_counter_ip where ci_code='' and ci_pm='M' and ci_ip='106.146.194.242' and ci_yy='24' and ci_mm='12' and ci_dd='21' and ci_hh='05'
+
+Time : 05:03:21
+SQLSTATE[HY000]: General error: 1615 Prepared statement needs to be re-prepared
+Raw SQL : select * from df_counter_ip where ci_code='' and ci_pm='M' and ci_ip='216.170.123.128' and ci_yy='24' and ci_mm='12' and ci_dd='21' and ci_hh='05'

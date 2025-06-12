@@ -1,0 +1,55 @@
+Time : 11:12:56
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:12:43
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:12:37
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:12:22
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:12:09
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:08:55
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:08:04
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:07:59
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:07:57
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:07:53
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:06:58
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:06:10
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:05:46
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 11:05:42
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '01037055167' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		f_ref_site  = :f_ref_site	,		wdate       = NOW() 	,		wip         = :wip

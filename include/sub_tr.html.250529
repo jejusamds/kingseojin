@@ -1,0 +1,314 @@
+				<div class="title_con">
+					<span><?=$title_text?></span>
+				</div>
+
+				<div class="route_con">
+					<div class="contents_con">			
+						<div class="list_con">
+							<ul>
+								<?php if( $Menu != "03" ){ ?>
+								<li class="route01">
+									<div class="contents_con">
+										<div class="btn_con">
+											<div class="bar"></div>
+
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	<?=$route_text01?>
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+												<li>
+													<a href="/company/company_sub01.html" class="<?php if($Menu=='01'){?>on<?php }else{?><?php }?>">
+														회사소개
+													</a>
+												</li>
+												<li>
+													<a href="/brandstory/brandstory_sub01.html" class="<?php if($Menu=='02'){?>on<?php }else{?><?php }?>">
+														브랜드스토리
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01.html" class="<?php if($Menu=='03'){?>on<?php }else{?><?php }?>">
+														제품소개
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub01.html" class="<?php if($Menu=='04'){?>on<?php }else{?><?php }?>">
+														고객센터
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<?php } ?>
+								<li class="route02">
+									<div class="contents_con">
+										<div class="btn_con">
+											<div class="bar"></div>
+
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	<?php if( $Menu != "03" ){ ?>
+																	    <?=$route_text02?>
+																	<?php }else{ ?>
+																	    <?=$category_1_name?>
+																	<?php } ?>
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+												<?php if( $Menu == "01" ){ ?>
+												<li>
+													<a href="/company/company_sub01.html" class="<?php if($sMenu=='01-1'){?>on<?php }else{?><?php }?>">
+														CEO 인사말
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub02.html" class="<?php if($sMenu=='01-2'){?>on<?php }else{?><?php }?>">
+														연혁
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub03.html" class="<?php if($sMenu=='01-3'){?>on<?php }else{?><?php }?>">
+														인증자료
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub04.html" class="<?php if($sMenu=='01-4'){?>on<?php }else{?><?php }?>">
+														오시는길
+													</a>
+												</li>
+												<?php }else if( $Menu == "02" ){ ?>
+												<li>
+													<a href="/brandstory/brandstory_sub01.html" class="<?php if($sMenu=='02-1'){?>on<?php }else{?><?php }?>">
+														브랜드스토리
+													</a>
+												</li>
+												<?php }else if( $Menu == "03" ){ ?>
+                                                
+                                                <?php foreach($menu as $lvl1): ?>
+                                                <li>
+													<a href="/product/product_sub01_list.html?idx=<?=$lvl1['idx']?>" class="<?=$category_1_name == $lvl1['name'] ? 'on' : ''?>">
+														<?=htmlspecialchars($lvl1['name'])?>
+													</a>
+												</li>
+                                                <?php endforeach; ?>
+
+												<?php }else if( $Menu == "04" ){ ?>
+												<li>
+													<a href="/center/center_sub01.html" class="<?php if($sMenu=='04-1'){?>on<?php }else{?><?php }?>">
+														공지사항
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub02.html" class="<?php if($sMenu=='04-2'){?>on<?php }else{?><?php }?>">
+														제품사용후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub03.html" class="<?php if($sMenu=='04-3'){?>on<?php }else{?><?php }?>">
+														상품 및 구매후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub04.html" class="<?php if($sMenu=='04-4'){?>on<?php }else{?><?php }?>">
+														견적문의
+													</a>
+												</li>
+												<?php } ?>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<?php if( $Menu == "03" ){ ?>
+								<li class="route03">
+									<div class="contents_con">
+										<div class="btn_con">
+											<div class="bar"></div>
+
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	<?=$category_2_name ?? ''?>
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+                                                <?php foreach ($middle_category as $mc) : ?>
+                                                    <li>
+                                                        <a href="/product/product_sub01_list.html?idx=<?=$mc['idx']?>" class="<?=$category_2_name == $mc['name'] ? 'on' : ''?>">
+                                                            <?=htmlspecialchars($mc['name'])?>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<script>
+					// 서브 경로 이벤트
+					$(document).on("click","#sub_con > .contents_con > .route_con > .contents_con > .list_con > ul > li > .contents_con > .btn_con",function(){
+						$("#sub_con > .contents_con > .route_con > .contents_con > .list_con > ul > li > .contents_con > .btn_con").each(function(){
+							$(this).find(".arrow_td img").css("transform","rotate(0deg)");
+							$(this).next(".list_con").slideUp();
+						});
+
+						if( $(this).next(".list_con").css("display") == "none" ){
+							$(this).find(".arrow_td img").css("transform","rotate(180deg)");
+							$(this).next(".list_con").slideDown();
+						}else{
+							$(this).find(".arrow_td img").css("transform","rotate(0deg)");
+							$(this).next(".list_con").slideUp();
+						}
+					});
+				</script>
+
+				<script type="text/javascript" language="javascript">
+					// 서브 타이틀 문자열 span 예외처리
+					document.addEventListener('DOMContentLoaded', function() {
+						var titleSpans = document.querySelectorAll('#sub_con > .contents_con > .title_con span');
+						titleSpans.forEach(function(span) {
+							var text = span.textContent;
+							var html = '';
+							for (var i = 0; i < text.length; i++) {
+								var ch = text[i];
+								// 공백은 그대로, 줄바꿈은 <br>로 변환
+								if (ch === '\n') {
+									html += '<br />';
+								} else if (ch === ' ') {
+									html += ' ';
+								} else {
+									html += '<span>' + ch + '</span>';
+								}
+							}
+							span.innerHTML = html;
+						});
+					});
+
+					$(document).ready(function(){
+						gsap.registerPlugin(ScrollTrigger, CustomEase);
+					
+						setTimeout(function(){
+							// #sub_con 애니메이션을 기록할 변수
+							let tl_sub_con = null;
+							
+							// #sub_con 애니메이션
+							gsap.to("#sub_con", {
+								scrollTrigger: {
+									trigger: "#sub_con",
+									start: "top center",
+									end: "bottom center",
+									onEnter: () => {
+										// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+										if (!tl_sub_con) {
+											// 타임라인 생성
+											tl_sub_con = gsap.timeline();
+
+											//
+											tl_sub_con.to("#sub_con > .contents_con > .title_con span span", {
+												opacity: "1",
+												translateX: 0,
+												ease: "ease",
+												duration: 0.8,
+												stagger: {
+													each: 0.2,
+													from: "start",
+												},
+											});
+
+											//
+											tl_sub_con.to("#sub_con > .contents_con > .route_con > .contents_con > .list_con > ul > li > .contents_con", {
+												opacity: "1",
+												translateX: 0,
+												ease: "ease",
+												duration: 0.8,
+												stagger: {
+													each: 0.2,
+													from: "start",
+												},
+											}, "<");
+											
+											// 
+											tl_sub_con.to("#sub_con > .contents_con > .banner_con", {
+												transform: "scaleX(1)",
+												ease: "ease",
+												duration: 0.8,
+											}, "<");
+
+											// 
+											tl_sub_con.to("#sub_con > .contents_con > .filter_con", {
+												opacity: "1",
+												translateY: 0,
+												ease: "ease",
+												duration: 0.8,
+											}, "<");
+										}
+									},
+									onLeaveBack: () => {
+										// 실행 중인 애니메이션 중지 및 초기화
+										if (tl_sub_con) {
+											tl_sub_con.kill();
+											tl_sub_con = null;
+										}
+									},
+									//markers: true,
+								},
+							});
+						}, 500);
+
+						ScrollTrigger.refresh();
+					});
+				</script>

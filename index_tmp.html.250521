@@ -1,0 +1,605 @@
+<?php
+	$Main = "Y";
+
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+?>
+
+	<div id="container">
+		<div id="main_con">
+			<div class="slide_con">
+				<div class="swiper main_slide">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide main_slide_div" data-swiper-autoplay="4000">
+							<div class="contents_con">
+								<div class="text_con">
+									<div class="text01_con">
+										<span>
+											가족의 마음을 담은 주방, <br />
+											요리의 중심이 되는 <br class="m_br"/>주방용품
+										</span>
+									</div>
+
+									<div class="text02_con">
+										<span>
+											매일 사용하는 주방은 더 깨끗하고 편리해야 하는 곳 <br />
+											나를 위한 주방용품 요리가 즐거운 제품
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="bg w_con" style="background-image:url('/img/main/main_slide01.png');"></div>
+							<div class="bg m_con" style="background-image:url('/img/main/m_main_slide01.png');"></div>
+						</div>
+						<div class="swiper-slide main_slide_div" data-swiper-autoplay="4000">
+							<div class="contents_con">
+								<div class="text_con">
+									<div class="text01_con">
+										<span>
+											이 세상에서 가장 <br class="m_br"/>머물고 싶은곳, <br />
+											소소한 일상의 행복은 <br class="m_br"/>주방에서 시작됩니다.
+										</span>
+									</div>
+
+									<div class="text02_con">
+										<span>
+											매일 사용하는 주방은 더 깨끗하고 편리해야 하는 곳 <br />
+											나를 위한 주방용품 요리가 즐거운 제품
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="bg w_con" style="background-image:url('/img/main/main_slide02.png');"></div>
+							<div class="bg m_con" style="background-image:url('/img/main/m_main_slide02.png');"></div>
+						</div>
+						<div class="swiper-slide main_slide_div" data-swiper-autoplay="4000">
+							<div class="contents_con">
+								<div class="text_con">
+									<div class="text01_con">
+										<span>
+											킹서진이 만들어낸 <br class="m_br"/>주방용품, <br />
+											우리가족의 행복을 <br class="m_br"/>만들어 드립니다.
+										</span>
+									</div>
+
+									<div class="text02_con">
+										<span>
+											매일 사용하는 주방은 더 깨끗하고 편리해야 하는 곳 <br />
+											나를 위한 주방용품 요리가 즐거운 제품
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="bg w_con" style="background-image:url('/img/main/main_slide03.png');"></div>
+							<div class="bg m_con" style="background-image:url('/img/main/m_main_slide03.png');"></div>
+						</div>
+						<div class="swiper-slide main_slide_div" data-swiper-autoplay="4000">
+							<div class="contents_con">
+								<div class="text_con">
+									<div class="text01_con">
+										<span>
+											친환경 주방용품개발로, <br />
+											깊은 믿음과 사랑을 만듭니다. <br class="m_br"/>- 킹서진
+										</span>
+									</div>
+
+									<div class="text02_con">
+										<span>
+											매일 사용하는 주방은 더 깨끗하고 편리해야 하는 곳 <br />
+											나를 위한 주방용품 요리가 즐거운 제품
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="bg w_con" style="background-image:url('/img/main/main_slide04.png');"></div>
+							<div class="bg m_con" style="background-image:url('/img/main/m_main_slide04.png');"></div>
+						</div>
+					</div>
+
+					<div class="swiper-pagination main_slide_swiper-pagination"></div>
+				</div>
+			</div>
+
+			<div class="product_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							BEST PRODUCT<span class="dot">.</span>
+						</span>
+					</div>
+
+					<div class="contents_con">
+						<div class="list_con">
+							<ul>
+								<li class="over">
+									<a href="/product/product_sub01_list.html">
+										<div class="list_div bg01">
+											<div class="text_con">
+												<div class="text01_con">
+													<span>
+														후라이팬
+													</span>
+
+													<img src="/img/main/main_product_list_arrow.svg" alt="화살표" class="fx" />
+												</div>
+
+												<div class="text02_con">
+													<span>
+														촉매 코팅으로 당신의 건강을 챙겨드립니다.
+													</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_list.html">
+										<div class="list_div bg02">
+											<div class="text_con">
+												<div class="text01_con">
+													<span>
+														혼술 · 혼밥용
+													</span>
+
+													<img src="/img/main/main_product_list_arrow.svg" alt="화살표" class="fx" />
+												</div>
+
+												<div class="text02_con">
+													<span>
+														나를 위한 주방용품 요리가 즐거운 제품
+													</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_list.html">
+										<div class="list_div bg03">
+											<div class="text_con">
+												<div class="text01_con">
+													<span>
+														팬악세사리
+													</span>
+
+													<img src="/img/main/main_product_list_arrow.svg" alt="화살표" class="fx" />
+												</div>
+
+												<div class="text02_con">
+													<span>
+														최상의 품질력과 기술력
+													</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_list.html">
+										<div class="list_div bg04">
+											<div class="text_con">
+												<div class="text01_con">
+													<span>
+														건지기류
+													</span>
+
+													<img src="/img/main/main_product_list_arrow.svg" alt="화살표" class="fx" />
+												</div>
+
+												<div class="text02_con">
+													<span>
+														경험이 많은 세련된 디자인과 우수한 품질
+													</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="category_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							CATEGORY<span class="dot">.</span>
+						</span>
+
+						<a href="/product/product_sub01.html" class="more_btn">
+							<span>
+								자세히 보기
+							</span>
+
+							<div class="arrow">
+								<img src="/img/main/main_category_more_btn_arrow.svg" alt="화살표" class="fx off" />
+								<img src="/img/main/main_category_more_btn_arrow_on.svg" alt="화살표" class="fx on" />
+							</div>
+						</a>
+					</div>
+
+					<div class="contents_con">
+						<div class="slide_con">
+							<div class="swiper main_category_slide">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img01.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														냄비 및 후라이팬
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img02.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														테이블웨어 및 커트러리류
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img03.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														혼술, 야외용품
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img04.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														바구니 및 건지기류
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img05.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														용기 및 단체급식
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img06.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														렌지 및 구이판
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+									<div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('/img/main/main_category_slide_img_con_img07.png');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														운반카 및 물통
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="more_btn_con m_con">
+							<a href="/product/product_sub01.html" class="a_btn">
+								<span>
+									자세히 보기
+								</span>
+								
+								<img src="/img/main/main_category_more_btn_arrow.svg" alt="화살표" class="fx" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="kingseojin_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							KING SEOJIN<span class="dot">.</span>
+						</span>
+					</div>
+
+					<div class="contents_con">
+						<div class="text_con">
+							<div class="text01_con">
+								<span>
+									주방용품 시장에서 신뢰받는 브랜드
+								</span>
+							</div>
+
+							<div class="text02_con">
+								<span>
+									45여년의 노하우로 시대의 변함에도 브랜드 철학을 고수해 <br class="m_br" />온 <br class="w_br" />
+									킹서진은 한국을 넘어 세계적으로 시장을 넓혀가며 그 <br class="m_br" />가치를 인정받고 있습니다.
+								</span>
+							</div>
+						</div>
+
+						<div class="contents_con">
+							<div class="img_con">
+								<img src="/img/main/main_kingseojin_img_con_img.png" alt="컨텐츠 이미지" class="fx w_img" />
+								<img src="/img/main/m_main_kingseojin_img_con_img.png" alt="컨텐츠 이미지" class="fx m_img" />
+
+								<a href="/brandstory/brandstory_sub01.html" class="more_btn">
+									<span>
+										자세히 보기
+									</span>
+
+									<img src="/img/main/main_kingseojin_more_btn_arrow.svg" alt="화살표" class="fx" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fnl_con">
+				<div class="contents_con">
+					<div class="text_con">
+						<div class="text01_con">
+							<span>
+								FOOD & <br />
+								LIFE CREATOR
+							</span>
+						</div>
+
+						<div class="text02_con">
+							<span>
+								최상의 품질력과 기술력으로 국내주방용품업체 No.1 <br />
+								친환경 주방용품개발로 가정에 기쁨과 행복이 가득
+							</span>
+						</div>
+					</div>
+
+					<div class="video_con">
+						<div class="contents_con">
+							<iframe src="https://www.youtube.com/embed/UbAMwH_mPiY?si=nR1MkZIFKgItWJ86" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+		
+		});
+
+		// 초기 화면 크기 저장
+		var main_initialWidth = window.innerWidth;
+		var main_isFirstLoad = true;
+
+		// 리사이즈 예외처리
+		var main_resizeTimer;
+
+		// 메인 슬라이드
+		var main_slide = null;
+
+		// Category 슬라이드
+		var main_category_slide = null;
+
+		// 화면 리사이징
+		$(window).resize(function(){
+			// 현재 window 너비
+			var currentWidth = window.innerWidth;
+			
+			// 너비가 변경되지 않은 경우(스크롤, 상태바 동작) 무시
+			if(currentWidth === main_initialWidth && !main_isFirstLoad) {
+				return;
+			}
+			
+			clearTimeout(main_resizeTimer);
+			
+			// 메인 슬라이드 예외처리
+			$("#main_con > .slide_con").css({"opacity":"0","transition":"none"});
+
+			// Category 슬라이드 예외처리
+			$("#main_con > .category_con > .contents_con > .contents_con > .slide_con").css({"opacity":"0","transition":"none"});
+
+			// 화면 너비
+			if (window.innerWidth > 1024) {
+				
+			}else{
+
+			}
+
+			main_resizeTimer = setTimeout(function() {
+				// 실제 리사이징이 발생한 경우에만 처리
+				if(currentWidth !== main_initialWidth || main_isFirstLoad) {
+					// 메인 슬라이드 파괴
+					if (main_slide) {
+						main_slide.destroy();
+						main_slide = null;
+					}
+
+					// 메인 슬라이드
+					if( $(".main_slide_div").length > 1 ){
+						main_slide = new Swiper ('.main_slide', {
+							slidesPerView: 'auto',
+							effect: 'fade',
+							autoplay: {
+								delay: 4000,
+								disableOnInteraction: false,
+							},
+							speed: 1500,
+							loop: true,
+							pagination: {
+								el: ".main_slide_swiper-pagination",
+								clickable: true,
+							},
+							observer: true,
+                            observeParents: true,
+						});
+					}else{
+						main_slide = new Swiper ('.main_slide', {
+							slidesPerView: 'auto',
+							loop: false,
+							observer: true,
+                            observeParents: true,
+							simulateTouch: false,
+							allowTouchMove: false,
+						});
+					}
+
+					// Category 슬라이드 파괴
+					if (main_category_slide) {
+						main_category_slide.destroy();
+						main_category_slide = null;
+					}
+
+					// 화면 너비
+					if (window.innerWidth > 1024) {
+						// BEST PRODUCT 오버 시 예외처리
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").removeClass("over");
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li:first-child").addClass("over");
+
+						// BEST PRODUCT 오버 시
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").hover(function(){
+							$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").each(function(){
+								$(this).removeClass("over");
+							});
+							$(this).addClass("over");
+						});
+
+						// Category 슬라이드
+						if( $(".main_category_slide_div").length > 5 ){
+							main_category_slide = new Swiper ('.main_category_slide', {
+								slidesPerView: 'auto',
+								autoplay: {
+									delay: 4000,
+									disableOnInteraction: false,
+									pauseOnMouseEnter: true // 마우스 호버 시 자동재생 멈춤
+								},
+								speed: 1500,
+								loop: true,
+								observer: true,
+								observeParents: true,
+							});
+						}else{
+							main_category_slide = new Swiper ('.main_category_slide', {
+								slidesPerView: 'auto',
+								loop: false,
+								observer: true,
+								observeParents: true,
+								simulateTouch: false,
+								allowTouchMove: false,
+							});
+						}
+					}else{
+						// BEST PRODUCT 오버 시 예외처리
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").removeClass("over");
+
+						// Category 슬라이드
+						if( $(".main_category_slide_div").length > 2 ){
+							main_category_slide = new Swiper ('.main_category_slide', {
+								slidesPerView: 'auto',
+								autoplay: {
+									delay: 4000,
+									disableOnInteraction: false,
+								},
+								speed: 1500,
+								loop: true,
+								observer: true,
+								observeParents: true,
+							});
+						}else{
+							main_category_slide = new Swiper ('.main_category_slide', {
+								slidesPerView: 'auto',
+								loop: false,
+								observer: true,
+								observeParents: true,
+								simulateTouch: false,
+								allowTouchMove: false,
+							});
+						}
+					}
+
+					// 메인 슬라이드 예외처리
+					$("#main_con > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+
+					// Category 슬라이드 예외처리
+					$("#main_con > .category_con > .contents_con > .contents_con > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+
+					main_initialWidth = currentWidth;
+					main_isFirstLoad = false;
+				}
+			}, 500);
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

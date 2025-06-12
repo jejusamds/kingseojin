@@ -1,0 +1,892 @@
+<?php
+$Main = "Y";
+
+include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+
+if ( $detect->isMobile() || $detect->isTablet() ){
+    $today = date('Y-m-d');
+	$sql = " Select * From df_site_content_mobile Where type='popup' And isuse='Y' And sdate<='".$today."' And edate>='".$today."' Order by idx Desc ";
+	$popup_in = $db->query($sql);
+	if(count($popup_in) > 0) {
+
+?>
+
+<script type="text/javascript" src="/js/jquery.flexslider.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/flexslider.css" />
+<style>
+	/* 팝업 */
+	#pop_event_bg {position:absolute; top:0; left:0; right:0; width:100%; max-width:960px; min-width:320px; margin:0 auto; background-color:#000000; opacity:0.5; z-index:9999; display:none;}
+	#pop_event01 {width:100%; max-width:960px; min-width:320px; position:fixed; top:15%; left:0; right:0; margin:0 auto; z-index:9999; display:none;}
+	#pop_event01 > table {width:85%; margin:0 auto;}
+	#pop_event01 > table > tbody > tr > td {}
+	#pop_event01 > table > tbody > tr > .contents_td {border:5px solid #f0f3f0; background-color:#f0f3f0;}
+	#pop_event01 > table > tbody > tr > .contents_td #pop_event_slide_con {}
+	#pop_event01 > table > tbody > tr > .contents_td #pop_event_slide_con > .pop_event_slide {}
+	#pop_event01 > table > tbody > tr > .contents_td #pop_event_slide_con > .pop_event_slide .slides {}
+	#pop_event01 > table > tbody > tr > .contents_td #pop_event_slide_con > .pop_event_slide .slides li {}
+	#pop_event01 > table > tbody > tr > .contents_td #pop_event_slide_con > .pop_event_slide .slides li img {display:block; width:100%;}
+	#pop_event01 > table > tbody > tr > .close_td {}
+	#pop_event01 > table > tbody > tr > .close_td label {display:block; cursor:pointer;}
+	#pop_event01 > table > tbody > tr > .close_td label > input {display:none;}
+	#pop_event01 > table > tbody > tr > .close_td label > span {display:block; background-color:#299ed8; text-align:center; font-size:60%; color:#ffffff; line-height:3.4em;}
+	#pop_event01 > table > tbody > tr > .close_td a {display:block; background-color:#cccccc; text-align:center; font-size:60%; color:#ffffff; line-height:3.4em;}
+</style>
+
+<script type="text/javascript" language="javascript">
+	$(function() {
+		// 팝업 쿠키체크
+		if( getCookie("close_event01")){
+			$("#pop_event01").hide();
+		}else{
+			$("#pop_event01").show();
+		}	
+		
+		// 팝업 이벤트 슬라이드
+		$('.pop_event_slide').flexslider({
+			animation: "slide",
+			animationLoop: false,
+			slideshow: false,                
+			slideshowSpeed: 4000,
+			animationSpeed: 1000,     
+			directionNav: false,
+			controlNav: true,
+			smoothHeight: true
+		});
+
+		$("#pop_event_bg").css("height", $(document).height()+"px");
+		if($("#pop_event01").css("display")=="block"){
+			$("#pop_event_bg").fadeIn("500");
+		}
+		
+		$('.pop_event_slide img').each(function(){
+			$(this).css('max-width', '100%');
+			$(this).css('height', 'auto');
+		});
+		
+		setTimeout(setConBg,500);
+	});
+	function setConBg(){
+		$("#pop_event_bg").css("height", $(document).height()+"px");
+	}
+	
+	function setCookie( name, value, expiredays ){
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+	
+	function closeWin(idx){
+		setCookie("close_"+idx,"close_"+idx,1);
+		$("#pop_"+idx).hide();
+		$("#pop_event_bg").fadeOut("500");
+	}
+	
+	function closeWinNo(idx){
+		$("#pop_"+idx).hide();
+		$("#pop_event_bg").fadeOut("500");
+	}
+	
+	function getCookie( cookieName ){
+		var search = cookieName + "=";
+		var cookie = document.cookie;
+		
+		if( cookie.length > 0 ){
+			startIndex = cookie.indexOf( cookieName );
+			if( startIndex != -1 ){
+				startIndex += cookieName.length;
+				endIndex = cookie.indexOf( ";", startIndex );
+				if( endIndex == -1) endIndex = cookie.length;
+				return unescape( cookie.substring( startIndex + 1, endIndex ) );
+			}
+			else{
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+	}
+</script>
+
+<div id="pop_event_bg"></div>
+<div id="pop_event01">
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td align="left" colspan="2" class="contents_td">
+				<div id="pop_event_slide_con">
+					<div class="flexslider pop_event_slide">
+						<ul class="slides">
+							<? for($i=0; $i<count($popup_in); $i++){ ?>
+							<li>
+								<?=$popup_in[$i]['content']?>
+							</li>
+							<? } ?>
+						</ul>
+					</div> 
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="left" class="close_td" width="70%">
+				<label>
+					<input type="checkbox" name="notice" onClick="closeWin('event01')" />
+					<span>
+						오늘 하루 동안 열지 않음
+					</span>
+				</label>
+			</td>
+			<td align="right" class="close_td" width="30%">
+				<a href="javascript:closeWinNo('event01');">
+					닫기
+				</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<?php
+} // if count 팝업 
+} else {
+    include $_SERVER['DOCUMENT_ROOT'].'/inc/popup.inc'; 
+}
+?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'].'/include/main_slide.php'; ?>
+
+	<div id="container">
+		<div id="main_con">
+			<div class="slide_con">
+				<div class="swiper main_slide">
+					<div class="swiper-wrapper">
+                        <?php
+                        foreach ($main_slide as $main_s) :
+                            $pc_img = "/img/main/main_slide01.png";
+                            $m_img = "/img/main/m_main_slide01.png";
+
+                            $default_path = "";
+                            if (!empty($main_s->upfile) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $main_s->upfile)) {
+                                $pc_img = $default_path . $main_s->upfile;
+                            }
+                            if (!empty($main_s->upfile_m) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $main_s->upfile_m)) {
+                                $m_img = $default_path . $main_s->upfile_m;
+                            }
+
+                        ?>
+                            <div class="swiper-slide main_slide_div" data-swiper-autoplay="4000">
+                                <div class="contents_con">
+                                    <div class="text_con w_con">
+                                        <div class="text01_con">
+                                            <span>
+                                                <?= nl2br($main_s->title) ?>
+                                            </span>
+                                        </div>
+
+                                        <div class="text02_con">
+                                            <span>
+                                                <?= nl2br($main_s->title_sub) ?>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="text_con m_con">
+                                        <div class="text01_con">
+                                            <span>
+                                                <?= nl2br($main_s->title_mobile) ?>
+                                            </span>
+                                        </div>
+
+                                        <div class="text02_con">
+                                            <span>
+                                                <?= nl2br($main_s->title_sub_mobile) ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg w_con" style="background-image:url('<?=$pc_img?>');"></div>
+                                <div class="bg m_con" style="background-image:url('<?=$m_img?>');"></div>
+                            </div>
+                        <?php endforeach; ?>
+					</div>
+
+					<div class="swiper-pagination main_slide_swiper-pagination"></div>
+				</div>
+			</div>
+
+			<div class="product_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							BEST PRODUCT<span class="dot">.</span>
+						</span>
+					</div>
+
+					<div class="contents_con">
+						<div class="list_con">
+							<ul>
+                                <?php
+                                foreach ($best_slide as $best_s) :
+                                    $pc_img = "/img/main/main_product_list_bg01.png";
+                                    $m_img = "/img/main/m_main_product_list_bg01.png";
+
+                                    $default_path = "";
+                                    if (!empty($best_s->upfile) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $best_s->upfile)) {
+                                        $pc_img = $default_path . $best_s->upfile;
+                                    }
+                                    if (!empty($best_s->upfile_m) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $best_s->upfile_m)) {
+                                        $m_img = $default_path . $best_s->upfile_m;
+                                    }
+
+                                ?>
+                                <li class="over">
+									<a href="<?=$best_s->link?>">
+										<div class="list_div">
+											<div class="text_con">
+												<div class="text01_con">
+													<span>
+														<?=$best_s->title?>
+													</span>
+
+													<img src="/img/main/main_product_list_arrow.svg" alt="화살표" class="fx" />
+												</div>
+
+												<div class="text02_con">
+													<span>
+														<?=$best_s->title_sub?>
+													</span>
+												</div>
+											</div>
+
+											<div class="bg w_con" style="background-image:url('<?=$pc_img?>');"></div>
+											<div class="bg m_con" style="background-image:url('<?=$m_img?>');"></div>
+										</div>
+									</a>
+								</li>
+                                <?php endforeach; ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="category_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							CATEGORY<span class="dot">.</span>
+						</span>
+
+						<a href="/product/product_sub01.html" class="more_btn">
+							<span>
+								자세히 보기
+							</span>
+
+							<div class="arrow">
+								<img src="/img/main/main_category_more_btn_arrow.svg" alt="화살표" class="fx off" />
+								<img src="/img/main/main_category_more_btn_arrow_on.svg" alt="화살표" class="fx on" />
+							</div>
+						</a>
+					</div>
+
+					<div class="contents_con">
+						<div class="slide_con">
+							<div class="swiper main_category_slide">
+								<div class="swiper-wrapper">
+                                <?php 
+                                foreach($menu as $lvl1): 
+                                    $thumbnail = '/img/main/main_category_slide_img_con_img01.png';
+                                    $default_path = "/userfiles/contents/category/";
+                                    if (!empty($lvl1['thumbnail']) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $lvl1['thumbnail'])) {
+                                        $thumbnail = $default_path . $lvl1['thumbnail'];
+                                    }
+                                ?>
+                                    <div class="swiper-slide main_category_slide_div" data-swiper-autoplay="4000">
+										<a href="/product/product_sub01_list.html?idx=<?=$lvl1['idx']?>">
+											<div class="contents_con">
+												<div class="img_con" style="background-image:url('<?=$thumbnail?>');">
+													<img src="/img/main/main_category_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+												</div>
+
+												<div class="text_con">
+													<span>
+														<?=htmlspecialchars($lvl1['name'])?>
+													</span>
+												</div>
+
+												<div class="over_con"></div>
+											</div>
+										</a>
+									</div>
+                                <?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+
+						<div class="more_btn_con m_con">
+							<a href="/product/product_sub01.html" class="a_btn">
+								<span>
+									자세히 보기
+								</span>
+								
+								<img src="/img/main/main_category_more_btn_arrow.svg" alt="화살표" class="fx" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="kingseojin_con">
+				<div class="contents_con">
+					<div class="title_con">
+						<span>
+							KING SEOJIN<span class="dot">.</span>
+						</span>
+					</div>
+
+					<div class="contents_con">
+						<div class="text_con">
+							<div class="text01_con">
+								<span>
+									주방용품 시장에서 신뢰받는 브랜드
+								</span>
+							</div>
+
+							<div class="text02_con">
+								<span>
+									45여년의 노하우로 시대의 변함에도 브랜드 철학을 고수해 <br class="m_br" />온 <br class="w_br" />
+									킹서진은 한국을 넘어 세계적으로 시장을 넓혀가며 그 <br class="m_br" />가치를 인정받고 있습니다.
+								</span>
+							</div>
+						</div>
+
+						<div class="contents_con">
+							<div class="img_con">
+								<img src="/img/main/main_kingseojin_img_con_img.png" alt="컨텐츠 이미지" class="fx w_img" />
+								<img src="/img/main/m_main_kingseojin_img_con_img.png" alt="컨텐츠 이미지" class="fx m_img" />
+
+								<a href="/brandstory/brandstory_sub01.html" class="more_btn">
+									<span>
+										자세히 보기
+									</span>
+
+									<img src="/img/main/main_kingseojin_more_btn_arrow.svg" alt="화살표" class="fx" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fnl_con">
+				<div class="contents_con">
+					<div class="text_con">
+						<div class="text01_con">
+							<span>
+								FOOD & <br />
+								LIFE CREATOR
+							</span>
+						</div>
+
+						<div class="text02_con">
+							<span>
+								최상의 품질력과 기술력으로 국내주방용품업체 No.1 <br />
+								친환경 주방용품개발로 가정에 기쁨과 행복이 가득
+							</span>
+						</div>
+					</div>
+
+					<div class="video_con">
+						<div class="contents_con">
+							<iframe src="https://www.youtube.com/embed/UbAMwH_mPiY?si=nR1MkZIFKgItWJ86" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			gsap.registerPlugin(ScrollTrigger, CustomEase);
+		
+			setTimeout(function(){
+				// #main_con > .product_con 애니메이션을 기록할 변수
+				let tl_main_product = null;
+				
+				// #main_con > .product_con 애니메이션
+				gsap.to("#main_con > .product_con", {
+					scrollTrigger: {
+						trigger: "#main_con > .product_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_main_product) {
+								// 타임라인 생성
+								tl_main_product = gsap.timeline();
+								
+								// 
+								tl_main_product.to("#main_con > .product_con > .contents_con > .title_con span, #main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li > a", {
+									opacity: 1,
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_main_product) {
+								tl_main_product.kill();
+								tl_main_product = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+
+				// #main_con > .category_con 애니메이션을 기록할 변수
+				let tl_main_category = null;
+				
+				// #main_con > .category_con 애니메이션
+				gsap.to("#main_con > .category_con", {
+					scrollTrigger: {
+						trigger: "#main_con > .category_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_main_category) {
+								// 타임라인 생성
+								tl_main_category = gsap.timeline();
+								
+								if (window.innerWidth > 1024) {
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .title_con > span", {
+										opacity: 1,
+										translateY: 0,
+										ease: "ease",
+										duration: 0.8,
+									});
+
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .title_con .more_btn", {
+										opacity: 1,
+										translateY: "-50%",
+										ease: "ease",
+										duration: 0.8,
+									}, "-=0.6");
+
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .contents_con > .slide_con .swiper .swiper-wrapper .swiper-slide > a", {
+										opacity: 1,
+										translateY: 0,
+										ease: "ease",
+										duration: 0.8,
+										stagger: {
+											each: 0.2,
+											from: "start",
+										},
+									}, "-=0.6");
+
+									// Category 슬라이드
+									var main_category_slide = null;
+									
+									// Category 슬라이드 파괴
+									if (main_category_slide) {
+										main_category_slide.destroy();
+										main_category_slide = null;
+									}
+
+									// Category 슬라이드
+									if( $(".main_category_slide_div").length > 5 ){
+										main_category_slide = new Swiper ('.main_category_slide', {
+											slidesPerView: 'auto',
+											autoplay: {
+												delay: 4000,
+												disableOnInteraction: false,
+												pauseOnMouseEnter: true // 마우스 호버 시 자동재생 멈춤
+											},
+											speed: 1500,
+											loop: true,
+											observer: true,
+											observeParents: true,
+										});
+									}else{
+										main_category_slide = new Swiper ('.main_category_slide', {
+											slidesPerView: 'auto',
+											loop: false,
+											observer: true,
+											observeParents: true,
+											simulateTouch: false,
+											allowTouchMove: false,
+										});
+									}
+								}else{
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .title_con > span", {
+										opacity: 1,
+										translateY: 0,
+										ease: "ease",
+										duration: 0.8,
+									});
+
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .contents_con > .slide_con .swiper .swiper-wrapper .swiper-slide > a", {
+										opacity: 1,
+										translateY: 0,
+										ease: "ease",
+										duration: 0.8,
+										stagger: {
+											each: 0.2,
+											from: "start",
+										},
+									}, "-=0.6");
+
+									// Category 슬라이드
+									var main_category_slide = null;
+									
+									// Category 슬라이드 파괴
+									if (main_category_slide) {
+										main_category_slide.destroy();
+										main_category_slide = null;
+									}
+
+									// Category 슬라이드
+									if( $(".main_category_slide_div").length > 2 ){
+										main_category_slide = new Swiper ('.main_category_slide', {
+											slidesPerView: 'auto',
+											autoplay: {
+												delay: 4000,
+												disableOnInteraction: false,
+											},
+											speed: 1500,
+											loop: true,
+											observer: true,
+											observeParents: true,
+										});
+									}else{
+										main_category_slide = new Swiper ('.main_category_slide', {
+											slidesPerView: 'auto',
+											loop: false,
+											observer: true,
+											observeParents: true,
+											simulateTouch: false,
+											allowTouchMove: false,
+										});
+									}
+
+									// 
+									tl_main_category.to("#main_con > .category_con > .contents_con > .contents_con > .more_btn_con.m_con .a_btn", {
+										opacity: 1,
+										translateY: 0,
+										ease: "ease",
+										duration: 0.8,
+									}, "-=1.6");
+								}
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_main_category) {
+								tl_main_category.kill();
+								tl_main_category = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+
+				// #main_con > .kingseojin_con 애니메이션을 기록할 변수
+				let tl_main_kingseojin = null;
+				
+				// #main_con > .kingseojin_con 애니메이션
+				gsap.to("#main_con > .kingseojin_con", {
+					scrollTrigger: {
+						trigger: "#main_con > .kingseojin_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_main_kingseojin) {
+								// 타임라인 생성
+								tl_main_kingseojin = gsap.timeline();
+								
+								// 
+								tl_main_kingseojin.to("#main_con > .kingseojin_con > .contents_con > .title_con span, #main_con > .kingseojin_con > .contents_con > .contents_con > .text_con > .text01_con span, #main_con > .kingseojin_con > .contents_con > .contents_con > .text_con > .text02_con span", {
+									opacity: 1,
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_main_kingseojin) {
+								tl_main_kingseojin.kill();
+								tl_main_kingseojin = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+
+				// #main_con > .fnl_con 애니메이션을 기록할 변수
+				let tl_main_fnl = null;
+				
+				// #main_con > .fnl_con 애니메이션
+				gsap.to("#main_con > .fnl_con", {
+					scrollTrigger: {
+						trigger: "#main_con > .fnl_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_main_fnl) {
+								// 타임라인 생성
+								tl_main_fnl = gsap.timeline();
+								
+								// 
+								tl_main_fnl.to("#main_con > .fnl_con > .contents_con > .text_con > .text01_con span, #main_con > .fnl_con > .contents_con > .text_con > .text02_con span, #main_con > .fnl_con > .contents_con > .video_con > .contents_con iframe", {
+									opacity: 1,
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_main_fnl) {
+								tl_main_fnl.kill();
+								tl_main_fnl = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+			}, 500);
+
+			ScrollTrigger.refresh();
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			gsap.registerPlugin(ScrollTrigger);
+
+			// 자연스러운 애니메이션을 위해 초기값 세팅
+			gsap.set('#main_con > .kingseojin_con > .contents_con > .contents_con > .contents_con > .img_con', {
+				scale: 0.32,
+				opacity: 0.5,
+				transformOrigin: 'center center'
+			});
+
+			gsap.to('#main_con > .kingseojin_con > .contents_con > .contents_con > .contents_con > .img_con', {
+				scale: 1,
+				opacity: 1,
+				transformOrigin: 'center center',
+				scrollTrigger: {
+					trigger: '#main_con > .kingseojin_con > .contents_con > .contents_con > .contents_con > .img_con',
+					start: 'top 90%',   // 더 아래에서 시작
+					end: 'top 35%',     // 더 위에서 끝
+					scrub: 0.5,         // scrub inertia
+					//markers: true,
+				},
+				ease: 'expo.out'
+			});
+		});
+	</script>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+		
+		});
+
+		// 초기 화면 크기 저장
+		var main_initialWidth = window.innerWidth;
+		var main_isFirstLoad = true;
+
+		// 리사이즈 예외처리
+		var main_resizeTimer;
+
+		// 메인 슬라이드
+		var main_slide = null;
+
+		if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+			// Category 슬라이드
+			var main_category_slide = null;
+		}
+
+		// 화면 리사이징
+		$(window).resize(function(){
+			// 현재 window 너비
+			var currentWidth = window.innerWidth;
+			
+			// 너비가 변경되지 않은 경우(스크롤, 상태바 동작) 무시
+			if(currentWidth === main_initialWidth && !main_isFirstLoad) {
+				return;
+			}
+			
+			clearTimeout(main_resizeTimer);
+			
+			// 메인 슬라이드 예외처리
+			$("#main_con > .slide_con").css({"opacity":"0","transition":"none"});
+			
+			if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+				// Category 슬라이드 예외처리
+				$("#main_con > .category_con > .contents_con > .contents_con > .slide_con").css({"opacity":"0","transition":"none"});
+			}
+
+			// 화면 너비
+			if (window.innerWidth > 1024) {
+				
+			}else{
+
+			}
+
+			main_resizeTimer = setTimeout(function() {
+				// 실제 리사이징이 발생한 경우에만 처리
+				if(currentWidth !== main_initialWidth || main_isFirstLoad) {
+					// 메인 슬라이드 파괴
+					if (main_slide) {
+						main_slide.destroy();
+						main_slide = null;
+					}
+
+					// 메인 슬라이드
+					if( $(".main_slide_div").length > 1 ){
+						main_slide = new Swiper ('.main_slide', {
+							slidesPerView: 'auto',
+							effect: 'fade',
+							autoplay: {
+								delay: 4000,
+								disableOnInteraction: false,
+							},
+							speed: 1500,
+							loop: true,
+							pagination: {
+								el: ".main_slide_swiper-pagination",
+								clickable: true,
+							},
+							observer: true,
+                            observeParents: true,
+						});
+					}else{
+						main_slide = new Swiper ('.main_slide', {
+							slidesPerView: 'auto',
+							loop: false,
+							observer: true,
+                            observeParents: true,
+							simulateTouch: false,
+							allowTouchMove: false,
+						});
+					}
+					
+					if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+						// Category 슬라이드 파괴
+						if (main_category_slide) {
+							main_category_slide.destroy();
+							main_category_slide = null;
+						}
+					}
+
+					// 화면 너비
+					if (window.innerWidth > 1024) {
+						// BEST PRODUCT 오버 시 예외처리
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").removeClass("over");
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li:first-child").addClass("over");
+
+						// BEST PRODUCT 오버 시
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").hover(function(){
+							$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").each(function(){
+								$(this).removeClass("over");
+							});
+							$(this).addClass("over");
+						});
+						
+						if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+							// Category 슬라이드
+							if( $(".main_category_slide_div").length > 5 ){
+								main_category_slide = new Swiper ('.main_category_slide', {
+									slidesPerView: 'auto',
+									autoplay: {
+										delay: 4000,
+										disableOnInteraction: false,
+										pauseOnMouseEnter: true // 마우스 호버 시 자동재생 멈춤
+									},
+									speed: 1500,
+									loop: true,
+									observer: true,
+									observeParents: true,
+								});
+							}else{
+								main_category_slide = new Swiper ('.main_category_slide', {
+									slidesPerView: 'auto',
+									loop: false,
+									observer: true,
+									observeParents: true,
+									simulateTouch: false,
+									allowTouchMove: false,
+								});
+							}
+						}
+					}else{
+						// BEST PRODUCT 오버 시 예외처리
+						$("#main_con > .product_con > .contents_con > .contents_con > .list_con > ul > li").removeClass("over");
+						
+						if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+							// Category 슬라이드
+							if( $(".main_category_slide_div").length > 2 ){
+								main_category_slide = new Swiper ('.main_category_slide', {
+									slidesPerView: 'auto',
+									autoplay: {
+										delay: 4000,
+										disableOnInteraction: false,
+									},
+									speed: 1500,
+									loop: true,
+									observer: true,
+									observeParents: true,
+								});
+							}else{
+								main_category_slide = new Swiper ('.main_category_slide', {
+									slidesPerView: 'auto',
+									loop: false,
+									observer: true,
+									observeParents: true,
+									simulateTouch: false,
+									allowTouchMove: false,
+								});
+							}
+						}
+					}
+
+					// 메인 슬라이드 예외처리
+					$("#main_con > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+					
+					if ($("#main_con > .category_con > .contents_con > .title_con > span").css("opacity") === "1") {
+						// Category 슬라이드 예외처리
+						$("#main_con > .category_con > .contents_con > .contents_con > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+					}
+
+					main_initialWidth = currentWidth;
+					main_isFirstLoad = false;
+				}
+			}, 500);
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

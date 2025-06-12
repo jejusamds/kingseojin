@@ -1,0 +1,334 @@
+<?php
+$Menu = "03";
+$sMenu = "03-1";
+
+include $_SERVER['DOCUMENT_ROOT'] . '/include/header.html';
+
+$idx = $_GET['idx'];
+$this_table = "df_site_category";
+
+$sql = "select * from {$this_table} where f_idx = :idx";
+$db->bind('idx', $idx);
+$default_result = $db->row($sql);
+$depth = $default_result['f_depth'];
+
+if (empty($default_result)) {
+    error('잘못된 접근입니다.', '/');
+    exit;
+}
+
+$middle_category = [];
+$category_1_name = '';
+$category_2_name = '';
+
+if ($depth < '2') {
+    // 대메뉴의 idx 인 경우
+    $middle_category = $menu[$idx]['children'];
+
+    $items = array_values($middle_category);
+    $category_1_name = $menu[$idx]['name'];
+    $category_2_name = $items[0]['name'];
+
+    $sql_cate_3 = "select * from {$this_table} where f_parent_idx = :f_parent_idx and f_depth = 3";
+    $db->bind('f_parent_idx', $items[0]['idx']);
+    $category_3_list = $db->query($sql_cate_3);
+} else {
+    // 중메뉴의 idx 인 경우
+    $list_category = $idx;
+    $sql = "select f_parent_idx from {$this_table} where f_idx = :idx";
+    $db->bind('idx', $idx);
+    $parent_idx = $db->single($sql);
+
+    $middle_category = $menu[$parent_idx]['children'];
+
+    $category_1_name = $menu[$parent_idx]['name'];
+    $category_2_name = $middle_category[$idx]['name'];
+
+    $sql_cate_3 = "select * from {$this_table} where f_parent_idx = :f_parent_idx and f_depth = 3";
+    $db->bind('f_parent_idx', $middle_category[$idx]['idx']);
+    $category_3_list = $db->query($sql_cate_3);
+}
+
+$title_text = $category_2_name;
+?>
+
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/include/sub_tr.html'; ?>
+
+            <div class="filter_con">
+                <div class="total_con">
+                    <span>
+                        <span class="color_text" id="product_count"></span> products
+                    </span>
+                </div>
+
+				<div class="scroll_con">
+					 <div class="contents_con">
+						<ul>
+							<li>
+								<label class="checkbox_label">
+									<input type="checkbox" id="select_all" value="" checked />
+									<div class="check_icon"></div>
+									<span>전체</span>
+								</label>
+							</li>
+
+							<?php foreach ($category_3_list as $cate_3): ?>
+								<li>
+									<label class="checkbox_label">
+										<input type="checkbox" name="selected[]" value="<?= $cate_3['f_idx'] ?>" />
+										<div class="check_icon"></div>
+										<span><?= htmlspecialchars($cate_3['f_name']) ?></span>
+									</label>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</div>
+            </div>
+
+            <div class="contents_con">
+
+                <div class="product_sub01_list_con">
+                    <div class="list_con"><ul id="product_up"></ul></div>
+
+                    <div class="number_list_con">
+                        <div class="contents_con">
+                            <div class="btn_con">
+                                <a href="#">
+                                    <img src="/img/sub/number_list_prev_btn.svg" alt="번호목록 이전 버튼" class="fx" />
+                                </a>
+                            </div>
+
+                            <div class="list_con">
+                                <a href="#" class="list_a on">1</a>
+                                <a href="#" class="list_a">2</a>
+                                <a href="#" class="list_a">3</a>
+                                <a href="#" class="list_a">4</a>
+                                <a href="#" class="list_a">5</a>
+                            </div>
+
+                            <div class="btn_con">
+                                <a href="#">
+                                    <img src="/img/sub/number_list_next_btn.svg" alt="번호목록 다음 버튼" class="fx" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        var categoryIdx = <?= json_encode((int) $idx) ?>;
+        var categoryDepth = <?= json_encode((int) $depth) ?>;
+        var $all = $('#select_all'),
+            $subs = $("input[name='selected[]']");
+        var currentPage = 1,
+            perPage = 20;
+
+        // 제품 + 페이징 렌더링
+        function fetchProducts(page) {
+            currentPage = page || 1;
+            var selected = $subs.filter(':checked').map(function () { return this.value; }).get();
+
+            $.ajax({
+                url: '/controller/product_process.php',
+                dataType: 'json',
+                data: {
+                    mode: 'product_list',
+                    category_idx: categoryIdx,
+                    depth: categoryDepth,
+                    'selected[]': selected,
+                    page: currentPage,
+                    per_page: perPage
+                },
+                beforeSend: function() {
+                    $("#product_up").empty();
+                },
+                success: function (res) {
+                    $('html, body').scrollTop(0);
+                    console.log(res);
+                    // 1) 제품 리스트
+                    var $ul = $("#product_up");
+                    var product_count = res.total;
+                    $("#product_count").html(product_count);
+                    if (res.list.length) {
+                        res.list.forEach(function (item) {
+                            var thumb = item.f_thumbnail
+                                ? '/userfiles/contents/product/' + item.f_thumbnail
+                                : '/img/product/product_sub01_img_con_none_img.png';
+                            $ul.append(
+                                '<li>' +
+                                '<a href="/product/product_sub01_view.html?idx=' + item.f_idx + '&pidx=<?=$idx?>">' +
+                                '<div class="list_div">' +
+                                '<div class="img_con" style="background-image:url(' + thumb + ')">' +
+                                '<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx"/>' +
+                                '</div>' +
+                                '<div class="text_con"><span>' + item.f_name + '</span></div>' +
+                                '</div>' +
+                                '</a>' +
+                                '</li>'
+                            );
+                        });
+
+						/**/
+						gsap.registerPlugin(ScrollTrigger, CustomEase);
+	
+						setTimeout(function(){
+							// .product_sub01_list_con 애니메이션을 기록할 변수
+							let product_sub01_list = null;
+							
+							// #brandstory_sub01_info01 애니메이션
+							gsap.to(".product_sub01_list_con", {
+								scrollTrigger: {
+									trigger: ".product_sub01_list_con",
+									start: "top center",
+									end: "bottom center",
+									onEnter: () => {
+										// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+										if (!product_sub01_list) {
+											// 타임라인 생성
+											product_sub01_list = gsap.timeline();
+
+											//
+											product_sub01_list.to(".product_sub01_list_con > .list_con > ul > li > a > .list_div, .product_sub01_list_con > .list_con > ul > .none_li span, .product_sub01_list_con > .number_list_con", {
+												opacity: "1",
+												translateY: 0,
+												ease: "ease",
+												duration: 0.8,
+												stagger: {
+													each: 0.2,
+													from: "start",
+												},
+											});
+										}
+									},
+									onLeaveBack: () => {
+										// 실행 중인 애니메이션 중지 및 초기화
+										if (product_sub01_list) {
+											product_sub01_list.kill();
+											product_sub01_list = null;
+										}
+									},
+									//markers: true,
+								},
+							});
+                            console.log(111);
+                            $("body").scrollTop(0);
+						}, 500);
+
+						ScrollTrigger.refresh();
+						/**/
+                    } else {
+                        $ul.append('<li class="none_li"><span>등록된 게시글이 없습니다.</span></li>');
+                    }
+
+                    // 2) 페이징 네비
+                    renderPagination(res.total, res.page, res.per_page);
+                }
+            });
+        }
+
+        // 페이징 HTML 생성
+        function renderPagination(total, page, perPage) {
+            var totalPages = Math.ceil(total / perPage),
+                $nav = $(".number_list_con .list_con").empty();
+            // prev
+            $(".number_list_con .btn_con:first a").off().on('click', function (e) {
+                e.preventDefault();
+                if (page > 1) fetchProducts(page - 1);
+            });
+            // next
+            $(".number_list_con .btn_con:last a").off().on('click', function (e) {
+                e.preventDefault();
+                if (page < totalPages) fetchProducts(page + 1);
+            });
+            // page numbers
+            for (var p = 1; p <= totalPages; p++) {
+                var cls = p === page ? 'list_a on' : 'list_a';
+                var $a = $('<a href="#" class="' + cls + '">' + p + '</a>');
+                (function (p) {
+                    $a.on('click', function (e) {
+                        e.preventDefault();
+                        fetchProducts(p);
+                    });
+                })(p);
+                $nav.append($a);
+            }
+        }
+
+        // 이벤트 바인딩 (전체/개별 체크박스)
+        $all.on('change', function () {
+            if (this.checked) $subs.prop('checked', false);
+            fetchProducts(1);
+        });
+        $subs.on('change', function () {
+            if ($subs.filter(':checked').length) $all.prop('checked', false);
+            else $all.prop('checked', true);
+            fetchProducts(1);
+        });
+
+        // 초기 로드
+        $all.prop('checked', true);
+        fetchProducts(1);
+    });
+</script>
+
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		gsap.registerPlugin(ScrollTrigger, CustomEase);
+	
+		setTimeout(function(){
+			// .product_sub01_list_con 애니메이션을 기록할 변수
+			let product_sub01_list = null;
+			
+			// #brandstory_sub01_info01 애니메이션
+			gsap.to(".product_sub01_list_con", {
+				scrollTrigger: {
+					trigger: ".product_sub01_list_con",
+					start: "top center",
+					end: "bottom center",
+					onEnter: () => {
+						// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+						if (!product_sub01_list) {
+							// 타임라인 생성
+							product_sub01_list = gsap.timeline();
+
+							//
+							product_sub01_list.to(".product_sub01_list_con > .list_con > ul > li > a > .list_div, .product_sub01_list_con > .list_con > ul > .none_li span, .product_sub01_list_con > .number_list_con", {
+								opacity: "1",
+								translateY: 0,
+								ease: "ease",
+								duration: 0.8,
+								stagger: {
+									each: 0.2,
+									from: "start",
+								},
+							});
+						}
+					},
+					onLeaveBack: () => {
+						// 실행 중인 애니메이션 중지 및 초기화
+						if (product_sub01_list) {
+							product_sub01_list.kill();
+							product_sub01_list = null;
+						}
+					},
+					//markers: true,
+				},
+			});
+		}, 500);
+
+		ScrollTrigger.refresh();
+	});
+</script>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.html'; ?>

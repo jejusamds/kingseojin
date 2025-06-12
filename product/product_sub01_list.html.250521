@@ -1,0 +1,447 @@
+<?php
+	$Menu = "03";
+	$sMenu = "03-1";
+
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+
+    $idx = $_GET['idx'];
+    $this_table = "df_site_category";
+
+    $sql = "select * from {$this_table} where f_idx = :idx";
+    $db->bind('idx', $idx);
+    $default_result = $db->row($sql);
+    $depth = $default_result['f_depth'];
+
+    $middle_category = [];
+    $category_1_name = '';
+    $category_2_name = '';
+   
+    if ($depth < '2') {
+        // 대메뉴의 idx 인 경우
+        $middle_category = $menu[$idx]['children'];
+
+        $items = array_values($middle_category);
+        $category_1_name = $menu[$idx]['name'];
+        $category_2_name = $items[0]['name'];
+
+        $sql_cate_3 = "select * from {$this_table} where f_parent_idx = :f_parent_idx and f_depth = 3";
+        $db->bind('f_parent_idx', $items[0]['idx']);
+        $category_3_list = $db->query($sql_cate_3);
+    } else {
+        // 중메뉴의 idx 인 경우
+        $list_category = $idx;
+        $sql = "select f_parent_idx from {$this_table} where f_idx = :idx";
+        $db->bind('idx', $idx);
+        $parent_idx = $db->single($sql);
+
+        $middle_category = $menu[$parent_idx]['children'];
+
+        $category_1_name = $menu[$parent_idx]['name'];
+        $category_2_name = $middle_category[$idx]['name'];
+
+        $sql_cate_3 = "select * from {$this_table} where f_parent_idx = :f_parent_idx and f_depth = 3";
+        $db->bind('f_parent_idx', $middle_category[$idx]['idx']);
+        $category_3_list = $db->query($sql_cate_3);
+    }
+    
+    $title_text = $category_2_name;
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<?php
+					include $_SERVER['DOCUMENT_ROOT'].'/include/sub_tr.html'; 
+                    //var_dump($category_3_list);
+				?>
+
+				<div class="filter_con">
+					<div class="total_con">
+						<span>
+							<span class="color_text">62</span> products
+						</span>
+					</div>
+
+					<ul>
+						<li>
+							<label class="checkbox_label">
+								<input type="checkbox" name="" />
+								<div class="check_icon"></div>
+								<span>
+									전체
+								</span>
+							</label>
+						</li>
+
+                        <?php foreach ($category_3_list as $cate_3) : ?>
+                            <li>
+                                <label class="checkbox_label">
+                                    <input type="checkbox" name="" />
+                                    <div class="check_icon"></div>
+                                    <span>
+                                        <?=htmlspecialchars($cate_3['f_name'])?>
+                                    </span>
+                                </label>
+                            </li>
+                        <?php endforeach; ?>
+					</ul>
+				</div>
+				
+				<div class="contents_con">
+					
+					<div class="product_sub01_list_con">
+						<div class="list_con">
+							<ul>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="/product/product_sub01_view.html">
+										<div class="list_div">
+											<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+												<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+											</div>
+
+											<div class="text_con">
+												<span>
+													경질신형 곱창전골 경질신형 곱창전골 경질신형 곱창전골
+												</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!--
+								<li class="none_li">
+									<span>
+										등록된 게시글이 없습니다.
+									</span>
+								</li>
+								-->
+							</ul>
+						</div>
+
+						<div class="number_list_con">
+							<div class="contents_con">
+								<div class="btn_con">
+									<a href="#">
+										<img src="/img/sub/number_list_prev_btn.svg" alt="번호목록 이전 버튼" class="fx" />
+									</a>
+								</div>
+							
+								<div class="list_con">
+									<a href="#" class="list_a on">
+										1
+									</a>
+									<a href="#" class="list_a">
+										2
+									</a>
+									<a href="#" class="list_a">
+										3
+									</a>
+									<a href="#" class="list_a">
+										4
+									</a>
+									<a href="#" class="list_a">
+										5
+									</a>
+								</div>
+							
+								<div class="btn_con">
+									<a href="#">
+										<img src="/img/sub/number_list_next_btn.svg" alt="번호목록 다음 버튼" class="fx" />
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

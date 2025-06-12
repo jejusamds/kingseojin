@@ -1,0 +1,161 @@
+<?php
+	$Menu = "01";
+	$sMenu = "01-1";
+
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<?php
+					include $_SERVER['DOCUMENT_ROOT'].'/include/sub_tr.html'; 
+				?>
+				
+				<div class="banner_con company_sub01">
+					<div class="bg bg01"></div>
+					<div class="bg bg02"></div>
+				</div>
+				
+				<div class="contents_con">
+					
+					<div class="company_sub01_con">
+						<div class="contents_con">
+							<div class="info01_con">
+								<div class="contents_con">
+									<div class="title_con">
+										<span>
+											CEO <br class="w_br" />
+											GREETING<span class="dot">.</span>
+										</span>
+									</div>
+
+									<div class="contents_con">
+										<div class="text_con">
+											<div class="text01_con">
+												<span>
+													45여 년의 노하우로 시대의 변함에도 <br />
+													브랜드 철학을 고수해 온 (주)킹서진은 한국을 넘어 <br />
+													세계적으로 시장을 넓혀가며 그 가치를 인정받고 <br class="m_br" />있습니다.
+												</span>
+											</div>
+
+											<div class="text02_con">
+												<p>
+													(주)킹서진은 최고의 품질과 좋은 제품을 생산하기 위해 <br class="m_br" />지금도 여전히 신제품 개발에 노력하는 회사입니다. <br />
+													<span class="color_text">"언제나 한 번 맺은 인연은 소중히 여기며 귀하의 일익에 <br class="m_br" />영원한 동반자가 되기 위하여 최선의 노력을 다할 것을 <br />
+													약속드립니다."</span>라고 말하며기업 아이덴티티를 지켜가고 <br class="m_br" />있는 회사입니다.
+												</p>
+
+												<p>
+													최고의 제품을 위해 노력하겠습니다.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="info02_con">
+								<div class="contents_con">
+									<div class="img_con">
+										<img src="/img/company/company_sub01_info02_img_con_img.png" alt="컨텐츠 이미지" class="fx w_img" />
+										<img src="/img/company/m_company_sub01_info02_img_con_img.png" alt="모바일 컨텐츠 이미지" class="fx m_img" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			gsap.registerPlugin(ScrollTrigger, CustomEase);
+		
+			setTimeout(function(){
+				// .company_sub01_con > .contents_con > .info01_con 애니메이션을 기록할 변수
+				let tl_company_sub01_info01 = null;
+				
+				// #company_sub01_info01 애니메이션
+				gsap.to(".company_sub01_con > .contents_con > .info01_con", {
+					scrollTrigger: {
+						trigger: ".company_sub01_con > .contents_con > .info01_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_company_sub01_info01) {
+								// 타임라인 생성
+								tl_company_sub01_info01 = gsap.timeline();
+
+								//
+								tl_company_sub01_info01.to(".company_sub01_con > .contents_con > .info01_con > .contents_con > .title_con, .company_sub01_con > .contents_con > .info01_con > .contents_con > .contents_con > .text_con > .text01_con, .company_sub01_con > .contents_con > .info01_con > .contents_con > .contents_con > .text_con > .text02_con", {
+									opacity: "1",
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_company_sub01_info01) {
+								tl_company_sub01_info01.kill();
+								tl_company_sub01_info01 = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+
+				// .company_sub01_con > .contents_con > .info02_con 애니메이션을 기록할 변수
+				let tl_company_sub01_info02 = null;
+				
+				// #company_sub01_info02 애니메이션
+				gsap.to(".company_sub01_con > .contents_con > .info02_con", {
+					scrollTrigger: {
+						trigger: ".company_sub01_con > .contents_con > .info02_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!tl_company_sub01_info02) {
+								// 타임라인 생성
+								tl_company_sub01_info02 = gsap.timeline();
+
+								//
+								tl_company_sub01_info02.to(".company_sub01_con > .contents_con > .info02_con > .contents_con > .img_con", {
+									opacity: "1",
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (tl_company_sub01_info02) {
+								tl_company_sub01_info02.kill();
+								tl_company_sub01_info02 = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+			}, 500);
+
+			ScrollTrigger.refresh();
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

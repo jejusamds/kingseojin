@@ -1,0 +1,195 @@
+Time : 17:03:50
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY b.idx DESC LIMIT  ?, ?' at line 1
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND b.area_1 LIKE :search_keywordORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 17:03:27
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY b.idx DESC LIMIT  ?, ?' at line 1
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND b.area_1 LIKE :search_keywordORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 17:02:43
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY b.idx DESC LIMIT  ?, ?' at line 1
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND b.area_1 LIKE :search_keywordORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 17:02:41
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY b.idx DESC LIMIT  ?, ?' at line 1
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND b.area_1 LIKE :search_keywordORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 17:02:03
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'BY b.idx DESC LIMIT  ?, ?' at line 1
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND b.area_1 LIKE :search_keywordORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 16:56:05
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT b.* FROM   df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category2
+                                                    )ORDER BY b.idx DESC LIMIT  :offset, :page_set
+
+Time : 16:54:42
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category2
+                                                    )
+
+Time : 16:54:32
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category2
+                                                    )
+
+Time : 16:54:01
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category2
+                                                    )
+
+Time : 16:54:00
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category2
+                                                    )
+
+Time : 16:53:40
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:49:08
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:49:03
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:48:17
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:48:09
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:48:08
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 16:47:52
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_board_walk b WHERE 1 = 1  AND (
+                                                        b.course_name = :category
+                                                    OR (
+                                                        CASE
+                                                        WHEN TRIM(b.area_2) = '' OR b.area_2 IS NULL
+                                                            THEN b.area_1
+                                                        ELSE CONCAT(b.area_1, ' ', b.area_2)
+                                                        END
+                                                    ) = :category
+                                                    )
+
+Time : 15:35:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	?, ?' at line 1
+Raw SQL : Select	b.*, 	From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	:offset, :page_set
+
+Time : 15:35:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	?, ?' at line 1
+Raw SQL : Select	b.*, 	From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	:offset, :page_set
+
+Time : 15:35:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	?, ?' at line 1
+Raw SQL : Select	b.*, 	From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	:offset, :page_set
+
+Time : 15:34:59
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	?, ?' at line 1
+Raw SQL : Select	b.*, 	From	df_site_board_walk b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	:offset, :page_set
+
+Time : 15:34:13
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : Select	b.*, 			(Select COUNT(*) From df_site_bbs_files Where bbsidx = b.idx) As file_cnt 	From	df_site_bbs b 	Where	1 = 1 	Order by	b.notice Desc, b.prino Desc 	Limit	:offset, :page_set

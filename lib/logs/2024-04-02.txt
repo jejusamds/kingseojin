@@ -1,0 +1,39 @@
+Time : 11:14:18
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:14:12
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:13:37
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:12:40
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:11:23
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:01:37
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 11:00:10
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 10:59:12
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 10:59:00
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 
+
+Time : 10:57:55
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('1234') 

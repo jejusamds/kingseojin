@@ -1,0 +1,19 @@
+Time : 18:10:46
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc' at line 1
+Raw SQL : Select * from df_site_review where platform = 'youtube' and prior < '240409152608' order by prior desc limit desc
+
+Time : 18:10:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'desc limit desc' at line 1
+Raw SQL : Select * from df_site_review where platform = 'youtube' and prior < '240409152608' order by desc limit desc
+
+Time : 15:38:37
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL :  Select upfile From df_site_buy Where idx='13' 
+
+Time : 15:34:49
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile_name' in 'field list'
+Raw SQL : Insert into df_site_review    Set       platform      = 'youtube'            , title         = 'vfWwL4N8CM4'            , platformName  = 'vfWwL4N8CM4'            , link          = 'vfWwL4N8CM4'            , adm_date      = '2024.04.18' 	        , prior         = '240409153449'            , showset       = 'Y'            , upfile        = '1712644489.png'            , upfile_name   = 'video_icon.png'            , wdate         = NOW()  ;
+
+Time : 14:30:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '.' at line 1
+Raw SQL : Update df_site_review Set prior=prior+1 Where prior>='240409135341' And idx!='7'  .

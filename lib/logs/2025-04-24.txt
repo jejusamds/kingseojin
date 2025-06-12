@@ -1,0 +1,35 @@
+Time : 16:15:45
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:14:46
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:14:21
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:14:14
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:14:13
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:13:56
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:13:14
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:13:10
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx
+
+Time : 16:11:23
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : select * from df_site_board_enjoy where idx = :idx

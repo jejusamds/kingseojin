@@ -1,0 +1,91 @@
+Time : 17:05:20
+SQLSTATE[08004] [1040] Too many connections
+
+Time : 17:05:20
+SQLSTATE[08004] [1040] Too many connections
+
+Time : 17:05:20
+SQLSTATE[HY000] [1040] Too many connections
+
+Time : 16:53:18
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_secret' in 'where clause'
+Raw SQL : SELECT passwd
+          FROM df_site_bbs
+         WHERE idx = :idx
+           AND is_secret = 1
+        LIMIT 1
+    
+
+Time : 16:52:51
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_secret' in 'where clause'
+Raw SQL : SELECT passwd
+          FROM df_site_bbs
+         WHERE idx = :idx
+           AND is_secret = 1
+        LIMIT 1
+    
+
+Time : 16:52:48
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_secret' in 'where clause'
+Raw SQL : SELECT passwd
+          FROM df_site_bbs
+         WHERE idx = :idx
+           AND is_secret = 1
+        LIMIT 1
+    
+
+Time : 14:02:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-20, 20' at line 11
+Raw SQL : SELECT b.*,
+                                        c1.f_name AS cat1_name,
+                                        c2.f_name AS cat2_name,
+                                        c3.f_name AS cat3_name
+                                    FROM df_site_product b
+                                    LEFT JOIN df_site_category AS c3 ON b.f_cat_idx     = c3.f_idx
+                                    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+                                    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+                                    WHERE 1=1 
+                                    ORDER BY b.prior DESC
+                                    LIMIT -20, 20
+
+Time : 13:45:32
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'wp.showseddt' in 'where clause'
+Raw SQL : SELECT wp.* 
+        FROM df_site_product wp
+        LEFT JOIN df_site_category AS c3 ON wp.f_cat_idx     = c3.f_idx
+        LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+        LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+     WHERE 1=1  AND wp.showseddt = '' 
+                     AND wp.prior <= '250526111215'
+                     AND wp.f_idx != '11'
+                     ORDER BY wp.prior DESC
+                     LIMIT 1
+
+Time : 13:45:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'wp.showset' in 'where clause'
+Raw SQL : SELECT wp.* 
+        FROM df_site_product wp
+        LEFT JOIN df_site_category AS c3 ON wp.f_cat_idx     = c3.f_idx
+        LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+        LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+     WHERE 1=1  AND wp.showset = '' 
+                     AND wp.prior <= '250526111215'
+                     AND wp.f_idx != '11'
+                     ORDER BY wp.prior DESC
+                     LIMIT 1
+
+Time : 11:25:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''13' at line 1
+Raw SQL : Update df_site_product Set prior=prior+1 Where prior>='250526111213' And f_idx!='13
+
+Time : 11:22:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''13' at line 1
+Raw SQL : Update df_site_product Set prior=prior-1 Where prior<='250526111213' And f_idx!='13
+
+Time : 11:21:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''13' at line 1
+Raw SQL : Update df_site_product Set prior=prior+1 Where prior>='250526111213' And idx!='13
+
+Time : 11:19:57
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'code' in 'where clause'
+Raw SQL : 	Select	wp.* 	From	df_site_product wp 	Where	1 = 1    and code = 'product'    and grp = ''  And wp.prior <= '' And wp.f_idx != '' Order by wp.prior Desc Limit 1 

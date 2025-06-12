@@ -1,0 +1,50 @@
+Time : 18:24:35
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : INSERT INTO df_site_inquiry_show SET f_name = :f_name, f_tel = :f_tel, f_meeting_place = :f_meeting_place, f_hope_visit_date = :f_hope_visit_date, f_hope_visit_time = :f_hope_visit_time, f_build_period = :f_build_period, f_expected_size = :f_expected_size, f_prefer_way = :f_prefer_way, f_build_place = :f_build_place, f_inquiry_contents = :f_inquiry_contents, wdate = NOW(), wip = :f_wip,
+
+Time : 18:18:51
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:18:51
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:04:58
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:04:58
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:04:55
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:04:55
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:03:33
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 18:03:18
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 17:49:41
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 17:48:25
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 17:47:10
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select 	COUNT(*) 	From 	df_site_event 	Where 	DATE_FORMAT(wdate,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d')
+
+Time : 17:22:50
+SQLSTATE[HY000] [1045] Access denied for user 'erhana'@'localhost' (using password: YES)

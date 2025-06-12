@@ -1,0 +1,70 @@
+Time : 19:02:24
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select * from df_site_product where idx='1'
+
+Time : 19:02:23
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select * from df_site_product where idx='1'
+
+Time : 19:01:33
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select * from df_site_product where idx='1'
+
+Time : 18:53:10
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.idx' in 'order clause'
+Raw SQL : Select	b.* 	From	df_site_product b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	0,15
+
+Time : 18:53:08
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'b.idx' in 'order clause'
+Raw SQL : Select	b.* 	From	df_site_product b 	Where	1 = 1 	Order by	b.idx Desc 	Limit	0,15
+
+Time : 18:38:19
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT f_idx AS idx, f_name AS name
+      FROM df_site_category
+      WHERE f_depth = :depth
+     AND f_parent_idx = :parent ORDER BY f_order
+
+Time : 18:37:41
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT f_idx AS idx, f_name AS name
+      FROM df_site_category
+      WHERE f_depth = :depth
+     ORDER BY f_order
+
+Time : 18:37:20
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT f_idx AS idx, f_name AS name
+      FROM df_site_category
+      WHERE f_depth = :depth
+     ORDER BY f_order
+
+Time : 18:36:22
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT f_idx AS idx, f_name AS name
+      FROM df_site_category
+      WHERE f_depth = :depth
+     ORDER BY f_order
+
+Time : 18:36:03
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT f_idx AS idx, f_name AS name
+      FROM df_site_category
+      WHERE f_depth = :depth
+     ORDER BY f_order
+
+Time : 17:03:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where f_parent_idx = ? and f_depth = 3' at line 1
+Raw SQL : select * from  where f_parent_idx = :f_parent_idx and f_depth = 3
+
+Time : 13:53:09
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select f_parent_idx from df_site_category where idx = :idx
+
+Time : 13:17:56
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select * from df_site_category where idx = :idx
+
+Time : 13:17:22
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL : select * from df_site_category where idx = :idx

@@ -1,0 +1,13 @@
+Time : 18:45:15
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-20, 20' at line 11
+Raw SQL : SELECT b.*,
+                                        c1.f_name AS cat1_name,
+                                        c2.f_name AS cat2_name,
+                                        c3.f_name AS cat3_name
+                                    FROM df_site_product b
+                                    LEFT JOIN df_site_category AS c3 ON b.f_cat_idx     = c3.f_idx
+                                    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+                                    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+                                    WHERE 1=1 
+                                    ORDER BY b.prior DESC
+                                    LIMIT -20, 20

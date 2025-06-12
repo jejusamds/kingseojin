@@ -1,0 +1,229 @@
+<?php
+$Menu = "04";
+$sMenu = "04-2";
+
+include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+
+$code = 'review';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/center/get_list.php';
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<?php
+					include $_SERVER['DOCUMENT_ROOT'].'/include/sub_tr.html'; 
+				?>
+				
+				<div class="contents_con">
+					
+					<div class="notice_list_con">
+						<div class="total_con">
+							<span>
+								TOTAL <span class="color_text"><?= number_format($total) ?></span>
+							</span>
+						</div>
+
+						<div class="normal_notice_con">
+							<div class="title_con">
+								<table cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td align="center" class="no_td">
+												<span>
+													NO
+												</span>
+											</td>
+											<td align="center" class="title_td">
+												<span>
+													제목
+												</span>
+											</td>
+											<td align="center" class="name_td">
+												<span>
+													작성자
+												</span>
+											</td>
+											<td align="center" class="date_td">
+												<span>
+													작성일
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="list_con">
+								<ul>
+                                    <?php if ($rows): ?>
+                                    <?php
+                                    $sqlTotalCount = "SELECT COUNT(*) FROM df_site_bbs {$addSql}";
+                                    foreach ($binds as $key => $val) {
+                                        $db->bind($key, $val);
+                                    }
+                                    $db->bind('code', $code);
+                                    $total_count = $db->single($sqlTotalCount);
+                                    $i = $total_count - (($page - 1) * $page_set);
+                                    ?>
+                                    <?php foreach ($rows as $row): ?>
+                                        <?php
+                                        $is_notice = $row['notice'] == 'Y';
+                                        $notice_btn = $is_notice ? 'notice_btn' : '';
+                                        $notice_str = $is_notice ? '공지' : ($i < 10 ? '0' . $i : $i);
+                                        $i--;
+                                        $has_file = !empty($row['file_idx']);
+                                        $next_url = $row['privacy'] == 'Y' ? '/center/center_sub02_auth.html' : '/center/center_sub02_view.html';
+                                        $next_mode = $next_url == '/center/center_sub02_auth.html' ? '&mode=auth' : '';
+                                        ?>
+                                        <li>
+                                            <a href="<?=$next_url?>?idx=<?= $row['idx'] ?>&<?=$param?>&<?=$next_mode?>">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="center" class="no_td">
+                                                                <span class="<?= $notice_btn ?>">
+                                                                    <?= $notice_str ?>
+                                                                </span>
+                                                            </td>
+                                                            <td align="left" class="title_td">
+                                                                <div class="title_con">
+                                                                    <div class="contents_con">
+                                                                        <?php if ($row['has_reply']): ?>
+																		    <img src="/img/sub/notice_answer_icon.svg" alt="답변 아이콘" class="fx" />
+                                                                        <?php endif; ?>    
+
+                                                                        <?php if ($row['privacy'] == 'Y'): ?>
+                                                                            <img src="/img/sub/notice_lock_icon.svg" alt="자물쇠 아이콘" class="fx" />
+                                                                        <?php endif; ?>
+
+                                                                        <?php if ($has_file): ?>
+                                                                            <img src="/img/sub/notice_file_icon.svg" alt="파일 아이콘"
+                                                                                class="fx" />
+                                                                        <?php endif; ?>
+                                                                        <span>
+                                                                            <?= htmlspecialchars($row['subject'], ENT_QUOTES) ?>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="info_con m_con">
+                                                                    <?= $row['name'] ?>｜<span><?= $row['date_fmt'] ?></span>
+                                                                </div>
+                                                            </td>
+                                                            <td align="center" class="name_td">
+                                                                <span>
+                                                                    <?= $row['name'] ?>
+                                                                </span>
+                                                            </td>
+                                                            <td align="center" class="date_td">
+                                                                <span><?= $row['date_fmt'] ?></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <li class="none_li">
+                                        <span>등록된 게시글이 없습니다.</span>
+                                    </li>
+                                <?php endif; ?>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="write_btn_con">
+							<a href="/center/center_sub02_write.html" class="a_btn">
+								작성하기
+							</a>
+						</div>
+
+						<div class="number_list_con">
+                            <div class="contents_con">
+                                <div class="btn_con">
+                                    <a href="?page=<?= $prevPage ?>&search_type=<?= urlencode($search_type) ?>&keyword=<?= urlencode($keyword) ?>">
+                                        <img src="/img/sub/number_list_prev_btn.svg" alt="번호목록 이전 버튼" class="fx" />
+                                    </a>
+                                </div>
+
+                                <div class="list_con">
+                                    <?php for ($i = $blockStart; $i <= $blockEnd; $i++):
+                                        $active = $i === $page ? 'on' : '';
+                                        ?>
+                                        <a href="?page=<?= $i ?>&search_type=<?= urlencode($search_type) ?>&keyword=<?= urlencode($keyword) ?>"
+                                            class="list_a <?= $active ?>">
+                                            <?= $i ?>
+                                        </a>
+                                    <?php endfor; ?>
+                                </div>
+
+                                <div class="btn_con">
+                                    <a href="?page=<?= $nextPage ?>&search_type=<?= urlencode($search_type) ?>&keyword=<?= urlencode($keyword) ?>">
+                                        <img src="/img/sub/number_list_next_btn.svg" alt="번호목록 다음 버튼" class="fx" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			gsap.registerPlugin(ScrollTrigger, CustomEase);
+		
+			setTimeout(function(){
+				// .notice_list_con 애니메이션을 기록할 변수
+				let notice_list = null;
+				
+				// #brandstory_sub01_info01 애니메이션
+				gsap.to(".notice_list_con", {
+					scrollTrigger: {
+						trigger: ".notice_list_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!notice_list) {
+								// 타임라인 생성
+								notice_list = gsap.timeline();
+
+								//
+								notice_list.to(".notice_list_con > .total_con, .normal_notice_con, .notice_list_con > .write_btn_con, .notice_list_con > .number_list_con", {
+									opacity: "1",
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (notice_list) {
+								notice_list.kill();
+								notice_list = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+			}, 500);
+
+			ScrollTrigger.refresh();
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

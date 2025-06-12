@@ -1,0 +1,411 @@
+Time : 13:08:03
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 13:07:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:56:21
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103fd54b8549.80739254.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:39:30
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103be234a5d3.42497152.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:32:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103a3a3ac297.67257086.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:31:52
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103a18457ae5.09729456.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:31:20
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='36'
+
+Time : 11:29:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103973742525.91499781.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:27:35
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='37'
+
+Time : 11:27:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '6810390ebe0eb4.61105302.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:27:22
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='36'
+
+Time : 11:27:17
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '68103905c2eea8.80363590.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:27:05
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '681038f9de69e7.59208355.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:27:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예...' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '제주 파빌리온 프로젝트 : 이 땅을 여끄다', 		agency_name		= '유동룡미술관', 		period			= '2025.05.02.(금)~08.31.(일)', 		intro_web		= '지역 특정적 특성을 가진 &lsquo;파빌리온&rsquo; 자체가 하나의 예술로서 제시되고 있는 요즘, 제주의 지역성을 기반으로 한 파빌리온(건축/공간)과 예술(미술관)의 결합을 중심으로 관람객의 공감각의 경험을 통해 문화예술 거점으로서의 미술관의 긍정적인 경험을 이끌고자 합니다. □ 전시 : &lt;제주 파빌리온 프로젝트 : 이 땅을 여끄다&gt; □ 프로그램 1) 성인 프로그램 &lt;밤의 뮤지엄 - 한서형 작가&gt; 2) 어린이날 특별 어린이 프로그램 &lt;제주 파빌리온에서 놀자!&gt; 3) 큐레이터/에듀케이터 전시 해설 프로그램', 		operating_time	= '10:00~18:00 
+매주 월요일 휴관
+
+전시) 
+<제주 파빌리온 프로젝트 : 이 땅을 여끄다>
+10:00~18:00 
+매주 월요일 휴관
+
+교육)  
+  1) <밤의 뮤지엄 - 한서형 작가>
+5월 중(일정 협의 중)
+18:30~20:30
+
+   2) 어린이날 특별 프로그램 <파빌리온에서 놀자>
+ 5/5~5/6
+14:00~15:00
+
+   3) 큐레이터/에듀케이터 전시 해설 프로그램
+5/17,24,31
+15:00~15:40
+ ', 		gubun		    = '전시', 		participation	= '현장 방문(전시) / 사전 예약(교육, 네이버 예약 페이지 신청)', 		apply_method	= '- 전시 : 현장 상시 방문
+- 교육 : 사전 예약 
+네이버 '유동룡미술관' 검색 - 예약 - 해당 프로그램명 선택 후 예약 
+예약 링크(https://m.place.naver.com/place/1182253119/ticket?entry=pll)', 		capacity		= '1) <밤의 뮤지엄 - 한서형 작가> - 40명 (성인 (19세 이상))
+2) 어린이날 특', 		etc				= '', 		phone			= '064-745-2678', 		homepage		= 'https://itamijunmuseum.com/', 		sns_insta		= 'https://www.instagram.com/itamijun_museum/ ', 		sns_face		= '', 		sns_youtube		= 'https://www.youtube.com/@itamijun_museum', 		sns_blog		= 'https://blog.naver.com/itamijun_museum', 		thumbnail		= '681038f6f1fca4.09490434.jpg', 		wdate			= '2025-04-24 17:04:25', 		wip				= '', 		area_1  		= '제주', 		area_2  		= '제주시', 		background_color= 'rgb(255,255,255)' 	Where	idx			= '36'
+
+Time : 11:26:16
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='31'
+
+Time : 11:25:55
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='30'
+
+Time : 11:25:19
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='29'
+
+Time : 11:25:04
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='28'
+
+Time : 11:24:46
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='39'
+
+Time : 11:24:30
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='40'
+
+Time : 11:24:14
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='41'
+
+Time : 11:23:57
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='42'
+
+Time : 11:23:43
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='43'
+
+Time : 11:23:22
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='46'
+
+Time : 11:23:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='47'
+
+Time : 11:22:51
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='48'
+
+Time : 11:22:44
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='49'
+
+Time : 11:22:36
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='50'
+
+Time : 11:22:18
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_board_walk Set upfile='' Where idx='51'
+
+Time : 10:51:43
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_board_walk b 	Where	1 = 1 
+
+Time : 10:51:08
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_board_walk b 	Where	1 = 1 
+
+Time : 10:28:06
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 
+
+Time : 10:27:44
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 
+
+Time : 10:27:38
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 
+
+Time : 10:26:17
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 
+
+Time : 10:20:50
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 
+
+Time : 10:20:41
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'renewal_museumweek_kr.df_site_board_walk' doesn't exist
+Raw SQL :  Select * From df_site_board_walk Where idx='52' 

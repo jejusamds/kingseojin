@@ -1,0 +1,307 @@
+Time : 13:05:58
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:56
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:47
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:37
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:18
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:15
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:12
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:07
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:05:00
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:04:59
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:04:46
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:04:44
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:04:38
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:03:47
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 13:03:43
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : 
+  SELECT COUNT(*) 
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+
+
+Time : 11:36:59
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(:sel0)
+  ORDER BY p.f_idx DESC
+
+Time : 11:36:29
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(:sel0,:sel1)
+  ORDER BY p.f_idx DESC
+
+Time : 11:36:29
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(:sel0)
+  ORDER BY p.f_idx DESC
+
+Time : 11:34:15
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sel0' in 'where clause'
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(sel0,sel1,sel2)
+  ORDER BY p.f_idx DESC
+
+Time : 11:34:10
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sel0' in 'where clause'
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(sel0,sel1)
+  ORDER BY p.f_idx DESC
+
+Time : 11:34:09
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sel0' in 'where clause'
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(sel0)
+  ORDER BY p.f_idx DESC
+
+Time : 11:31:37
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sel0' in 'where clause'
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(sel0,sel1)
+  ORDER BY p.f_idx DESC
+
+Time : 11:31:35
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sel0' in 'where clause'
+Raw SQL : SELECT p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND p.f_cat_idx IN(sel0)
+  ORDER BY p.f_idx DESC
+
+Time : 11:17:48
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT
+    p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+  ORDER BY p.f_idx DESC
+
+Time : 11:17:17
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT
+    p.f_idx, p.f_name, p.f_thumbnail
+  FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+  WHERE 1=1
+    AND c2.f_idx = :cat
+  ORDER BY p.f_idx DESC
+
+Time : 10:39:58
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_product Set upfile='' Where f_idx='57'
+
+Time : 10:39:02
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_product Set upfile='' Where f_idx='57'
+
+Time : 10:38:26
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'upfile' in 'field list'
+Raw SQL : Update df_site_product Set upfile='' Where f_idx='57'
+
+Time : 10:34:25
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idx' in 'where clause'
+Raw SQL :  Select * From df_site_product Where idx='1' 

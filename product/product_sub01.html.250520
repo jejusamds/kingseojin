@@ -1,0 +1,756 @@
+<?php
+	$Menu = "03";
+	$sMenu = "03-1";
+
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<div class="contents_con">
+					
+					<div class="product_sub01_con">
+						<div class="contents_con">
+                        <?php foreach($menu as $lvl1): ?>
+                            <div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											<?=htmlspecialchars($lvl1['name'])?> - 개발
+										</span>
+									</div>
+									<div class="list_con">
+										<ul>
+                                        <?php foreach($lvl1['children'] as $lvl2): ?>
+                                            <li>
+												<a href="/product/product_sub01_list.html">
+													<?=htmlspecialchars($lvl2['name'])?>
+												</a>
+											</li>
+                                        <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+								</div>
+                                        <!-- 슬라이드 시작 -->
+                                        <div class="slide_con">
+                                            <div class="swiper product_sub01_slide">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                        <a href="/product/product_sub01_list.html">
+                                                            <div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+                                                                <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+								</div>
+                                        <!-- 슬라이드 끝 -->
+                            </div>
+                        <?php endforeach; ?>
+
+
+
+
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											냄비 및 후라이팬
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													냄비
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													후라이팬
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													웍
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													볶음팬
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													철판류
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													기타소품
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											테이블웨어 및 커트러리류
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													접시
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													컵
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													식기
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													집게
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													국자
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													스쿠프
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													주방소품
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											혼술, 야외용품
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													혼술, 혼밥용
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													캠핑용
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											바구니 및 건지기류
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													바구니
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													와이어바스켓
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													건지기
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													드레인
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													구씨
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											용기 및 단체급식
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													BMP
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													멸치통
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													용기
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													대야
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													기타
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													팬악세사리
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													보존용기
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													식판
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													업소용 소품
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											렌지 및 구이판
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													렌지류
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													구이판
+												</a>
+											</li>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													화덕/화로
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											운반카 및 물통
+										</span>
+									</div>
+
+									<div class="list_con">
+										<ul>
+											<li>
+												<a href="/product/product_sub01_list.html">
+													운반카 및 물통
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+												<a href="/product/product_sub01_list.html">
+													<div class="img_con" style="background-image:url('/img/product/product_sub01_slide_img_con_none_img.png');">
+														<img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+		
+		});
+
+		// 초기 화면 크기 저장
+		var product_sub01_initialWidth = window.innerWidth;
+		var product_sub01_isFirstLoad = true;
+		// 리사이즈 예외처리
+		var product_sub01_resizeTimer;
+		// 제품소개 슬라이드 배열로 관리
+		var product_sub01_sliders = [];
+
+		// 슬라이더 초기화 함수
+		function initializeProductSliders() {
+			// 기존 슬라이더 제거
+			if(product_sub01_sliders.length > 0) {
+				product_sub01_sliders.forEach(function(slider) {
+					if(slider) {
+						slider.destroy();
+					}
+				});
+				product_sub01_sliders = [];
+			}
+			
+			// 슬라이드 요소 선택 전 투명도 조정
+			$(".product_sub01_con > .contents_con .contents_div > .slide_con").css({"opacity":"0","transition":"none"});
+			
+			// 각 슬라이더 초기화
+			$('.product_sub01_slide').each(function(i, v) {
+				// 현재 슬라이드 내의 slide_div 개수 확인
+				let slideCount = $(this).find(".product_sub01_slide_div").length;
+				
+				let sliderName = 'productSlider' + i;
+				$(this).attr('id', sliderName);
+				let sliderId = '#' + sliderName;
+				
+				let swiperOptions = {
+					slidesPerView: 'auto',
+					observer: true,
+					observeParents: true,
+					speed: 1500
+				};
+				
+				if (slideCount > 3) {
+					swiperOptions.loop = true;
+					swiperOptions.autoplay = {
+						delay: 4000,
+						disableOnInteraction: false
+					};
+				} else {
+					swiperOptions.loop = false;
+					swiperOptions.simulateTouch = false;
+					swiperOptions.allowTouchMove = false;
+				}
+				
+				// 슬라이더 생성 및 배열에 저장
+				let newSlider = new Swiper(sliderId, swiperOptions);
+				product_sub01_sliders.push(newSlider);
+			});
+			
+			// 슬라이드 요소 투명도 복원
+			setTimeout(function() {
+				$(".product_sub01_con > .contents_con .contents_div > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+			}, 100);
+		}
+
+		// 화면 로드 시 초기화
+		$(document).ready(function() {
+			initializeProductSliders();
+			product_sub01_isFirstLoad = false;
+		});
+
+		// 화면 리사이징
+		$(window).resize(function() {
+			// 현재 window 너비
+			var currentWidth = window.innerWidth;
+			
+			// 너비가 변경되지 않은 경우(스크롤, 상태바 동작) 무시
+			if(currentWidth === product_sub01_initialWidth && !product_sub01_isFirstLoad) {
+				return;
+			}
+			
+			clearTimeout(product_sub01_resizeTimer);
+			
+			product_sub01_resizeTimer = setTimeout(function() {
+				// 실제 리사이징이 발생한 경우에만 처리
+				if(currentWidth !== product_sub01_initialWidth || product_sub01_isFirstLoad) {
+					// 슬라이더 재초기화
+					initializeProductSliders();
+					
+					// 화면 너비에 따른 추가 처리
+					if (window.innerWidth > 1024) {
+						// PC 버전 추가 처리
+					} else {
+						// 모바일 버전 추가 처리
+					}
+					
+					product_sub01_initialWidth = currentWidth;
+					product_sub01_isFirstLoad = false;
+				}
+			}, 500);
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

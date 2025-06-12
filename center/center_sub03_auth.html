@@ -1,0 +1,143 @@
+<?php
+$Menu = "04";
+$sMenu = "04-3";
+
+include $_SERVER['DOCUMENT_ROOT'] . '/include/header.html';
+
+$code = "buy";
+
+if (empty($_GET['idx']) || empty($_GET['mode'])) {
+    error("잘못된 접근입니다.", '/');
+    exit;
+}
+?>
+
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <div class="contents_con">
+
+                <form id="authForm" action="/controller/bbs_controller.php" method="post" autocomplete="off">
+                    <input type="hidden" name="idx" value="<?= $idx ?>">
+                    <input type="hidden" name="code" value="<?= $code ?>">
+                    <input type="hidden" name="mode" value="<?=$_GET['mode']?>">
+                    <div class="notice_auth_con">
+                        <div class="contents_con">
+                            <div class="write_con">
+                                <div class="title_con">
+                                    <span>
+                                        비밀번호를 입력해주세요
+                                    </span>
+                                </div>
+
+                                <div class="input_con">
+                                    <input type="password" name="passwd" placeholder="비밀번호 입력" class="input" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn_con">
+                            <a href="/center/center_sub03.html" class="a_btn a_btn01">
+                                목록
+                            </a>
+
+                            <a href="#" id="authSubmit" class="a_btn a_btn02">
+                                확인
+                            </a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+
+    $(function () {
+        $('#authForm').on('submit', function (e) {
+            e.preventDefault();   // 기본 submit 차단
+
+            var $form = $(this);
+            $.ajax({
+                url: $form.attr('action'),
+                type: 'POST',
+                dataType: 'json',
+                data: $form.serialize()
+            })
+                .done(function (res) {
+                    if (res.result === 'blank' || res.result === 'invalid') {
+                        alert(res.msg);
+                        $form.find('[name="' + res.field + '"]').focus();
+                    } else if (res.result === 'ok') {
+                        if (res.mode === 'delete') {
+                            alert(res.msg);
+                        }
+                        window.location.href = res.redirect;
+                    } else {
+                        alert(res.msg || '예기치 못한 오류가 발생했습니다.');
+                    }
+                })
+                .fail(function () {
+                    alert('서버와 통신 중 오류가 발생했습니다.');
+                });
+        });
+
+        $('#authSubmit').on('click', function (e) {
+            e.preventDefault();
+            $('#authForm').submit();
+        });
+    });
+
+    $(document).ready(function () {
+        gsap.registerPlugin(ScrollTrigger, CustomEase);
+
+        setTimeout(function () {
+            // .notice_auth_con 애니메이션을 기록할 변수
+            let notice_auth = null;
+
+            // #brandstory_sub01_info01 애니메이션
+            gsap.to(".notice_auth_con", {
+                scrollTrigger: {
+                    trigger: ".notice_auth_con",
+                    start: "top center",
+                    end: "bottom center",
+                    onEnter: () => {
+                        // 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+                        if (!notice_auth) {
+                            // 타임라인 생성
+                            notice_auth = gsap.timeline();
+
+                            //
+                            notice_auth.to(".notice_auth_con > .contents_con, .notice_auth_con > .btn_con", {
+                                opacity: "1",
+                                translateY: 0,
+                                ease: "ease",
+                                duration: 0.8,
+                                stagger: {
+                                    each: 0.2,
+                                    from: "start",
+                                },
+                            });
+                        }
+                    },
+                    onLeaveBack: () => {
+                        // 실행 중인 애니메이션 중지 및 초기화
+                        if (notice_auth) {
+                            notice_auth.kill();
+                            notice_auth = null;
+                        }
+                    },
+                    //markers: true,
+                },
+            });
+        }, 500);
+
+        ScrollTrigger.refresh();
+    });
+</script>
+
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.html';
+?>

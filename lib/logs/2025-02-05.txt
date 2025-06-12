@@ -1,0 +1,27 @@
+Time : 17:52:37
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_level' doesn't exist
+Raw SQL : Select * From df_site_level  Order by level Asc
+
+Time : 17:52:36
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_level' doesn't exist
+Raw SQL : Select * From df_site_level  Order by level Asc
+
+Time : 16:17:54
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_comment' doesn't exist
+Raw SQL : Select * From df_site_comment Where depno=0 And bbsidx='2350'  order by prino desc
+
+Time : 16:15:24
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'event_sdate' in 'field list'
+Raw SQL : Insert into df_site_bbs 	Set		code			= 'news' 	, 		parno			= 0 	, 		prino			= '1' 	, 		depno			= 0 	, 		notice			= 'N' 	, 		grp				= '' 	, 		memid			= 'admin' 	, 		name			= '테스트' 	, 		email			= '' 	, 		subject			= '테스트입니다.' 	, 		content			= 'TTTTTTTTTTTTT' 	, 		ctype			= 'H' 	, 		privacy			= 'N' 	, 		passwd			= '' 	, 		count			= 0 	, 		recom			= 0 	, 		ip				= '112.220.18.234' 	, 		wdate			= '2025-02-05 16:15:22' 	, 		event_sdate		= '' 	, 		event_edate		= '' 	, 		event_win		= 'N' 	, 		event_winner	= '' 	,		rpermi			= ''
+
+Time : 16:14:20
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'prdcode' in 'field list'
+Raw SQL : Insert into df_site_bbs 	Set		code			= 'news' 	, 		parno			= 0 	, 		prino			= '1' 	, 		depno			= 0 	, 		notice			= 'N' 	, 		grp				= '' 	, 		memid			= 'admin' 	, 		name			= '테스트' 	, 		email			= '' 	, 		subject			= '테스트입니다.' 	, 		content			= 'TTTTTTTTTTTTT' 	, 		ctype			= 'H' 	, 		privacy			= 'N' 	, 		passwd			= '' 	, 		count			= 0 	, 		recom			= 0 	, 		ip				= '112.220.18.234' 	, 		wdate			= '2025-02-05 16:14:07' 	, 		prdcode			= '' 	, 		sns_link		= '' 	, 		event_sdate		= '' 	, 		event_edate		= '' 	, 		event_win		= 'N' 	, 		event_winner	= '' 	,		rpermi			= ''
+
+Time : 16:07:52
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_bbs_files' doesn't exist
+Raw SQL : Select * From df_site_bbs_files Where bbsidx='' Order by idx Asc
+
+Time : 16:07:11
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_bbs' doesn't exist
+Raw SQL : select * from df_site_bbs where code = 'news' and notice = 'Y' order by prino desc

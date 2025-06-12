@@ -1,0 +1,53 @@
+Time : 11:36:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'area_1  		= '제주' 		area_2  		= '애월' 	Where	idx			= '27'' at line 1
+Raw SQL : Update	df_site_board_enjoy 	Set		program_name	= '어서옵셔', 		agency_name		= '애월네||김씨네', 		period			= '기간 1
+기간 2', 		intro_web		= '테스트입니다테스트입니다테스트입니다테스트입니다<br />
+테스트입니다테스트입니다테스트입니다<br />
+<br />
+<br />
+테스트입니다테스트입니다', 		operating_time	= '운영시간
+1
+2', 		category		= '전시', 		participation	= '참여방법
+1
+2', 		apply_method	= '신청방법
+1
+2', 		capacity		= '1
+2
+3', 		etc				= '기타1
+기타2', 		phone			= '031-5454-8454', 		homepage		= 'https://naver.com||없음', 		sns_insta		= '없음||인스타주소', 		sns_face		= '없음||페북주소', 		sns_youtube		= '', 		sns_blog		= '', 		wdate			= '2025-04-23 11:35:05', 		wip				= '' 		area_1  		= '제주' 		area_2  		= '애월' 	Where	idx			= '27'
+
+Time : 11:34:31
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'intro_sns' in 'field list'
+Raw SQL : Insert into df_site_board_enjoy    set idx = NULL, 		program_name	= '어서옵셔', 		agency_name		= '애월네||김씨네', 		period			= '기간 1
+기간 2', 		intro_web		= '테스트입니다테스트입니다테스트입니다테스트입니다<br />
+테스트입니다테스트입니다테스트입니다<br />
+<br />
+<br />
+테스트입니다테스트입니다', 		intro_sns		= '', 		operating_time	= '운영시간
+1
+2', 		category		= '전시', 		participation	= '참여방법
+1
+2', 		apply_method	= '신청방법
+1
+2', 		capacity		= '1
+2
+3', 		etc				= '기타1
+기타2', 		phone			= '031-5454-8454', 		homepage		= 'https://naver.com||없음', 		sns_insta		= '없음||인스타주소', 		sns_face		= '없음||페북주소', 		sns_youtube		= '', 		sns_blog		= '', 		thumbnail		= '680851b7279ec6.86543256.png', 		wdate			= '2025-04-23 11:32:36', 		wip				= '112.220.18.234'
+
+Time : 11:32:30
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'intro_sns' in 'field list'
+Raw SQL : Insert into df_site_board_enjoy    set idx = NULL, 		program_name	= '어서옵셔', 		agency_name		= '애월네||김씨네', 		period			= '기간 1
+기간 2', 		intro_web		= '테스트입니다테스트입니다테스트입니다테스트입니다<br />
+테스트입니다테스트입니다테스트입니다<br />
+<br />
+<br />
+테스트입니다테스트입니다', 		intro_sns		= '', 		operating_time	= '운영시간
+1
+2', 		category		= '전시', 		participation	= '참여방법
+1
+2', 		apply_method	= '신청방법
+1
+2', 		capacity		= '1
+2
+3', 		etc				= '기타1
+기타2', 		phone			= '031-5454-8454', 		homepage		= 'https://naver.com||없음', 		sns_insta		= '없음||인스타주소', 		sns_face		= '없음||페북주소', 		sns_youtube		= '', 		sns_blog		= '', 		thumbnail		= '6808513e3c41c2.40054701.png', 		wdate			= '2025-04-23 11:30:10', 		wip				= '112.220.18.234'

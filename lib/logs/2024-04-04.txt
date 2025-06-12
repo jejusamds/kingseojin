@@ -1,0 +1,39 @@
+Time : 17:26:56
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:24:46
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:24:33
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:24:33
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:24:06
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:23:56
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_ibaa_concours' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_ibaa_concours 	Where	1 = 1 
+
+Time : 17:13:26
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_bbsinfo' doesn't exist
+Raw SQL : select * from df_site_bbsinfo where code = 'tv'
+
+Time : 17:13:11
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_bbsinfo' doesn't exist
+Raw SQL : select * from df_site_bbsinfo where code = 'tv'
+
+Time : 17:11:19
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_bbsinfo' doesn't exist
+Raw SQL : select * from df_site_bbsinfo where code = 'tv'
+
+Time : 17:11:11
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_bbsinfo' doesn't exist
+Raw SQL : select * from df_site_bbsinfo where code = ''

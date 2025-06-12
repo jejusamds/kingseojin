@@ -1,0 +1,7 @@
+Time : 13:36:05
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '/AND code = 'main'
+        ORDER BY prior DESC' at line 3
+Raw SQL : SELECT * FROM df_site_main_slide
+        WHERE showset = 'Y'
+        //AND code = 'main'
+        ORDER BY prior DESC

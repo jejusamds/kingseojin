@@ -1,0 +1,63 @@
+Time : 17:19:44
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(*) FROM df_site_request WHERE REPLACE(REPLACE(REPLACE(f_tel, '-', ''), ' ', ''), '(', '') = :pure_tel
+
+Time : 17:19:23
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(*) FROM df_site_request WHERE REPLACE(REPLACE(REPLACE(f_tel, '-', ''), ' ', ''), '(', '') = :pure_tel
+
+Time : 17:19:20
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(*) FROM df_site_request WHERE REPLACE(REPLACE(REPLACE(f_tel, '-', ''), ' ', ''), '(', '') = :pure_tel
+
+Time : 17:18:24
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(*) FROM df_site_request WHERE REPLACE(REPLACE(REPLACE(f_tel, '-', ''), ' ', ''), '(', '') = :pure_tel
+
+Time : 17:18:19
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(*) FROM df_site_request WHERE REPLACE(REPLACE(REPLACE(f_tel, '-', ''), ' ', ''), '(', '') = :pure_tel
+
+Time : 14:52:14
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-234333333' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:51:05
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:50:38
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:49:52
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:49:50
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:49:04
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:49:03
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:46:42
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:43:14
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 14:05:05
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '010-3705-516744334' for key 'f_tel'
+Raw SQL : Insert into df_site_request 	Set		f_name      = :f_name	,		f_tel       = :f_tel	,		f_age       = :f_age	,		f_life      = :f_life	,		f_hope      = :f_hope	,		f_holdings  = :f_holdings	,		wdate       = NOW() 	,		wip         = :wip
+
+Time : 13:17:35
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_request' doesn't exist
+Raw SQL :  Select COUNT(*) From df_site_request Where f_tel='12342342dsdf' 

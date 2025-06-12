@@ -1,0 +1,23 @@
+Time : 16:46:49
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL : Select code From df_site_channel Order by idx Desc
+
+Time : 16:45:52
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL : Select code From df_site_channel Order by idx Desc
+
+Time : 16:40:58
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_consult' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_consult 	Where	1 = 1 
+
+Time : 16:40:10
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL : Select code From df_site_channel Order by idx Desc
+
+Time : 16:39:02
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_consult' doesn't exist
+Raw SQL : 	Select 	COUNT(*) 	From 	df_site_consult 	Where 	DATE_FORMAT(wdate,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d') 
+
+Time : 16:36:34
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_consult' doesn't exist
+Raw SQL : 	Select 	COUNT(*) 	From 	df_site_consult 	Where 	DATE_FORMAT(wdate,'%Y-%m-%d') = DATE_FORMAT(NOW(),'%Y-%m-%d') 

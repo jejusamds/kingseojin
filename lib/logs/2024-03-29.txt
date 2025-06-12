@@ -1,0 +1,3 @@
+Time : 11:36:12
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roborock.df_site_channel' doesn't exist
+Raw SQL :  Select id, passwd, code From df_site_channel Where id='admin' And passwd=MD5('12345') 

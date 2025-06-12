@@ -1,0 +1,49 @@
+Time : 17:55:00
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-20, 20' at line 11
+Raw SQL : SELECT b.*,
+                                        c1.f_name AS cat1_name,
+                                        c2.f_name AS cat2_name,
+                                        c3.f_name AS cat3_name
+                                    FROM df_site_product b
+                                    LEFT JOIN df_site_category AS c3 ON b.f_cat_idx     = c3.f_idx
+                                    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+                                    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+                                    WHERE 1=1 
+                                    ORDER BY b.prior DESC
+                                    LIMIT -20, 20
+
+Time : 16:44:59
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_main_slide' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_main_slide 	Where	1 = 1 
+
+Time : 16:30:57
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_content_mobile' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_content_mobile 	Where	1 = 1  And type = 'popup' 
+
+Time : 16:29:02
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_content' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_content 	Where	1 = 1  And type = 'popup' 
+
+Time : 16:27:29
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_content' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_content 	Where	1 = 1  And type = 'popup' 
+
+Time : 16:26:59
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_content' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_content 	Where	1 = 1  And type = 'popup' 
+
+Time : 16:26:54
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_kingseojin.df_site_content' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_content 	Where	1 = 1  And type = 'popup' 
+
+Time : 14:03:43
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = :code and depno = 0 
+
+Time : 14:03:27
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = :code and depno = 0 
+
+Time : 14:02:55
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = :code and depno = 0 

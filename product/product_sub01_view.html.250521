@@ -1,0 +1,197 @@
+<?php
+	$Menu = "03";
+	$sMenu = "03-1";
+
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<div class="contents_con">
+					
+					<div class="product_sub01_view_con">
+						<div class="contents_con">
+							<div class="goods_con">
+								<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png');">
+									<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+								</div>
+
+								<div class="posts_con">
+									<div class="text_con">
+										<div class="title_con">
+											<div class="text01_con">
+												<span>
+													렌지 및 구이판
+												</span>
+											</div>
+
+											<div class="text02_con">
+												<span>
+													사각구이판(미니)
+												</span>
+
+												<a href="javascript:copy_url('<?=$url?>');" class="share_btn">
+													<img src="/img/product/product_sub01_view_share_icon.svg" alt="아이콘" class="fx" />
+												</a>
+											</div>
+										</div>
+
+										<div class="option_con">
+											<ul>
+												<li>
+													<table cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td align="left" class="title_td">
+																	<span>
+																		원산지
+																	</span>
+																</td>
+																<td align="left" class="info_td">
+																	<span>
+																		국내
+																	</span>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+												<li>
+													<table cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td align="left" class="title_td">
+																	<span>
+																		사이즈
+																	</span>
+																</td>
+																<td align="left" class="info_td">
+																	<span>
+																		260*190(mm)
+																	</span>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+												<li>
+													<table cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td align="left" class="title_td">
+																	<span>
+																		재질
+																	</span>
+																</td>
+																<td align="left" class="info_td">
+																	<span>
+																		알루미늄, 코팅 
+																	</span>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+												<li>
+													<table cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td align="left" class="title_td">
+																	<span>
+																		판매가
+																	</span>
+																</td>
+																<td align="left" class="info_td">
+																	<span>
+																		별도문의
+																	</span>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="btn_con">
+										<a href="/center/center_sub04.html" class="a_btn a_btn01">
+											견적문의하기
+										</a>
+
+										<a href="/product/product_sub01_list.html" class="a_btn a_btn02">
+											제품목록
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="posts_con">
+								<div class="title_con">
+									<span>
+										제품상세
+									</span>
+								</div>
+
+								<div class="contents_con">
+									<div class="text_con">
+										<span>
+											합리적인 가격으로 경제성이 뛰어난 나무결무늬 미니불판입니다. 
+											미니불판 형식으로 간단하게 들고다닐수있으며, 1인용품이나 야외활동시 활용이 가능합니다. 
+											하부에는 기름배출 유도 홈이있어 기름이 자연스럽게 빠집니다. 
+										</span>
+									</div>
+
+									<div class="img_con">
+										<ul>
+											<li>
+												<img src="/img/product/product_sub01_view_img01.png" />
+											</li>
+											<li>
+												<img src="/img/product/product_sub01_view_img02.png" />
+											</li>
+											<li>
+												<img src="/img/product/product_sub01_view_img03.png" />
+											</li>
+											<li>
+												<img src="/img/product/product_sub01_view_img04.png" />
+											</li>
+											<li>
+												<img src="/img/product/product_sub01_view_img05.png" />
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="btn_con">
+							<a href="/product/product_sub01_list.html" class="a_btn">
+								목록
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		// 사이트 url 복사하기
+		function copy_url(val) {
+			var dummy = document.createElement("textarea");
+			document.body.appendChild(dummy);
+			dummy.value = val;
+			dummy.select();
+			document.execCommand("copy");
+			document.body.removeChild(dummy);
+			
+			alert('URL이 복사되었습니다.');
+		}
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

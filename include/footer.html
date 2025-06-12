@@ -1,0 +1,332 @@
+	<div id="footer">		
+		<div class="contents_con">
+			<div class="info01_con">
+				<div class="nav">
+					<ul>
+						<li>
+							<a href="javascript:terms_popup('terms01');">
+								이용약관
+							</a>
+
+							<div class="bar"></div>
+						</li>
+						<li>
+							<a href="javascript:terms_popup('terms02');">
+								개인정보처리방침
+							</a>
+
+							<div class="bar"></div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="text_con">
+					<div class="text01_con">
+						<span>
+							법인명 : (주)킹서진 <span class="bar">｜</span> 대표 : 오다연 <span class="bar w_bar">｜</span><br class="m_br"/> 사업자등록번호 : 201-81-59554 <br />
+							주소 : 04573 서울특별시 중구 난계로17길 30-10 (황학동) <span class="bar w_bar">｜</span><br class="m_br"/> 전화 : 02-2238-8001 <span class="bar">｜</span> 팩스 : 02-2237-9122 <span class="bar w_bar">｜</span><br class="m_br"/> 개인정보책임관리자 : OOO
+						</span>
+					</div>
+
+					<div class="text02_con">
+						<span>
+							Copyright ⓒ 2017 (주)킹서진. All rights reserved.
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="info02_con">
+				<div class="text_con">
+					<div class="text01_con">
+						<img src="/img/main/footer_info02_text_text01_icon.svg" alt="아이콘" class="fx" />
+
+						<span>
+							고객센터
+						</span>
+					</div>
+
+					<div class="text02_con">
+						<span>
+							02-2238-8001
+						</span>
+					</div>
+
+					<div class="text03_con">
+						<span>
+							평일 09:00~18:00 (주말/공휴일 휴무)
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="top_btn">
+		<a href="javascript:move_scroll('go_wrap');" class="a_btn">
+			<img src="/img/main/top_btn.png" alt="탑 버튼" class="fx off" />
+			<img src="/img/main/top_btn_on.png" alt="탑 버튼 on" class="fx on" />
+		</a>
+	</div>
+
+	<div class="terms_popup_con_bg terms01"></div>
+	<div class="terms_popup_con terms01">
+		<div class="contents_con">
+			<div class="title_con">
+				<span>
+					이용약관
+				</span>
+			</div>
+
+			<div class="posts_con">
+				<div class="scroll_con">
+					<div class="contents_con">
+						<?=$privacy_arr['use']?>
+					</div>
+				</div>
+			</div>
+
+			<div class="close_btn">
+				<a href="javascript:terms_popup();" class="a_btn">
+					<img src="/img/sub/popup_close_btn.svg" alt="팝업 닫기 버튼" class="fx" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="terms_popup_con_bg terms02"></div>
+	<div class="terms_popup_con terms02">
+		<div class="contents_con">
+			<div class="title_con">
+				<span>
+					개인정보처리방침
+				</span>
+			</div>
+
+			<div class="posts_con">
+				<div class="scroll_con">
+					<div class="contents_con">
+						<?=$privacy_arr['privacy']?>
+					</div>
+				</div>
+			</div>
+
+			<div class="close_btn">
+				<a href="javascript:terms_popup();" class="a_btn">
+					<img src="/img/sub/popup_close_btn.svg" alt="팝업 닫기 버튼" class="fx" />
+				</a>
+			</div>
+		</div>
+	</div>
+		
+</div>
+
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		
+	});
+
+	// 약관 팝업
+	function terms_popup(type){
+		if( type == "terms01" ){
+			$(".terms_popup_con_bg.terms01").fadeIn();
+			$(".terms_popup_con.terms01").fadeIn();
+
+			// 화면 너비
+			if (window.innerWidth > 1024) {
+				
+			}else{
+				$("body").addClass("hidden").addClass("terms");
+			}
+		}else if( type == "terms02" ){
+			$(".terms_popup_con_bg.terms02").fadeIn();
+			$(".terms_popup_con.terms02").fadeIn();
+
+			// 화면 너비
+			if (window.innerWidth > 1024) {
+				
+			}else{
+				$("body").addClass("hidden").addClass("terms");
+			}
+		}else{
+			$(".terms_popup_con_bg").fadeOut();
+			$(".terms_popup_con").fadeOut();
+
+			// 화면 너비
+			if (window.innerWidth > 1024) {
+				
+			}else{
+				$("body").removeClass("hidden").removeClass("terms");
+			}
+		}
+	}
+
+	// 모바일 메인 메뉴
+	function m_main_nav(){
+		if( $("#m_main_nav").css("display") == "none" ){
+			$("body").addClass("hidden");
+			$("#m_main_nav_bg").fadeIn();
+			$("#m_main_nav").fadeIn();
+			$("#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con").css("height",($(window).innerHeight() - $("#m_main_nav > .contents_con > .header_con").innerHeight())+"px").scrollTop(0);
+		}else{
+			$("body").removeClass("hidden");
+			$("#m_main_nav_bg").fadeOut();
+			$("#m_main_nav").fadeOut();
+		}
+	}
+
+	// 모바일 메인 메뉴 하위 메뉴 클릭 시
+	$(document).on("click","#m_main_nav > .contents_con > .list_con > .nav > ul > li > a",function(){
+		$("#m_main_nav > .contents_con > .list_con > .nav > ul > li > a").each(function(){
+			$(this).removeClass("on");	
+		});
+		$(this).addClass("on");
+		$("#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con > .contents_con .contents_div").hide();
+		$("#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con > .contents_con .contents_div."+$(this).attr("val")).show();
+	});
+
+	// 모바일 메인 메뉴 하위 메뉴 type02_con 클릭 시
+	$(document).on("click","#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con > .contents_con .contents_div > .type02_con > ul > li > a.has",function(){
+		$("#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con > .contents_con .contents_div > .type02_con > ul > li > a.has").each(function(){
+			$(this).removeClass("on");
+			$(this).next(".sub_nav").slideUp();
+		});
+
+		 if ($(this).next(".sub_nav").css("display") == "none") {
+		   $(this).addClass("on");
+			$(this).next(".sub_nav").slideDown();
+		} else {
+			$(this).removeClass("on");
+			$(this).next(".sub_nav").slideUp();
+		}
+	});
+
+	// 스크롤 이벤트
+	$(window).on("resize scroll", function() {
+		if ($(this).scrollTop() > 0) {
+			$("#header").addClass("scroll");
+			$("#m_header").addClass("scroll");
+		} else {
+			$("#header").removeClass("scroll");
+			$("#m_header").removeClass("scroll");
+		}
+	});
+
+	// 스크롤 이동
+	function move_scroll(item_class){
+		var item = $("." + item_class);
+		var offset_item = item.offset();
+		var position_top = offset_item.top;
+		$('html,body').animate({scrollTop: position_top}, 500);
+	}
+
+	// 초기 화면 크기 저장
+	var basic_initialWidth = window.innerWidth;
+	var basic_isFirstLoad = true;
+
+	// 리사이즈 예외처리
+	var basic_resizeTimer;
+
+	// 화면 리사이징
+	$(window).resize(function() {
+		// 현재 window 너비
+		var currentWidth = window.innerWidth;
+
+		// 너비가 변경되지 않은 경우(스크롤, 상태바 동작) 무시
+		if (currentWidth === basic_initialWidth && !basic_isFirstLoad) {
+			return;
+		}
+
+		clearTimeout(basic_resizeTimer);
+
+		// 화면 너비
+		if (window.innerWidth > 1024) {
+			// 모바일 메인 메뉴 예외처리
+			if( $("#m_main_nav").css("display") != "none" ){
+				$("body").removeClass("hidden");
+				$("#m_main_nav_bg").hide();
+				$("#m_main_nav").hide();
+			}
+
+			// 약관 팝업 예외처리
+			if( $("body").hasClass("terms") ){
+				$("body").removeClass("hidden");
+				$(".terms_popup_con_bg").hide();
+				$(".terms_popup_con").hide();
+			}
+		}else{
+			// 약관 팝업 예외처리
+			if( !$("body").hasClass("terms") ){
+				$(".terms_popup_con_bg").hide();
+				$(".terms_popup_con").hide();
+			}
+		}
+
+		basic_resizeTimer = setTimeout(function() {
+			// 실제 리사이징이 발생한 경우에만 처리
+			if (currentWidth !== basic_initialWidth || basic_isFirstLoad) {
+				// 화면 너비
+				if (window.innerWidth > 1024) {
+					// 헤더 오버 시
+					$("#header").hover(					
+						function(){
+							$("#header").stop().addClass("over");
+						},
+						function(){
+							// 헤더 메뉴 오버 시 예외처리
+							if( $("#header > .contents_con > .nav > .list_con > ul > li > .sub_nav").css("display") != "none" ){
+								setTimeout(function(){
+									$("#header").stop().removeClass("over");
+								}, 500);	
+							}else{
+								$("#header").stop().removeClass("over");
+							}
+						}
+					);
+
+					// 헤더 메뉴 오버 시
+					$("#header > .contents_con > .nav > .list_con > ul > li").hover(
+						function(){
+							$(this).children("a").addClass("on");
+							$(this).find(".sub_nav").stop().slideDown();
+							$(this).find(".sub_nav > .contents_con").css("opacity","1");
+						},
+						function(){
+							$(this).children("a").removeClass("on");
+							$(this).find(".sub_nav").stop().slideUp();
+							$(this).find(".sub_nav > .contents_con").css("opacity","0");
+						}
+					);
+				}else{
+
+					// 회전 감지 함수
+					function checkOrientation() {
+						const orientation = window.orientation;
+						if (orientation === 90 || orientation === -90) {
+							// 가로 모드
+						} else {
+							// 세로 모드
+						}
+
+						 // 모바일 메인 메뉴 예외처리
+						if ($("#m_main_nav").css("display") != "none") {
+							$("#m_main_nav > .contents_con > .list_con > .list_con > .scroll_con").css("height",($(window).innerHeight() - $("#m_main_nav > .contents_con > .header_con").innerHeight())+"px").scrollTop(0);
+						}
+					}
+
+					// 초기 상태 확인
+					checkOrientation();
+
+					// 회전 이벤트 감지
+					window.addEventListener("resize", checkOrientation);
+				}
+
+				basic_initialWidth = currentWidth;
+				basic_isFirstLoad = false;
+			}
+		}, 500);
+	});
+</script>
+
+</body>
+</html>

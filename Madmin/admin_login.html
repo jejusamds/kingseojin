@@ -1,0 +1,126 @@
+<?php
+include "../inc/global.inc";
+include "../inc/site_info.inc";
+
+if ($_SESSION['admin_id'] != "") {
+	header("location: /Madmin/page/page_privacy.php?admin_type=privacy");
+}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="shortcut icon" href="/img/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="inc/style.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/easyBackground-min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?= $site_info['admin_title'] ?></title>
+	<!--[if lt IE 9]>
+<script src="./js/html5shiv.js"></script>
+<![endif]-->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('body').easyBackground({
+				effect: 'particles', //particles, video, gradient, pattern, slideshow, none
+				duration: 50000,
+				//gradient
+				gradientType: 'vertical', //horizontal, vertical, diagonal, radial
+				gradientColors: ['#34495E', '#2C3E50'],
+				gradientAnimateColors: ['#666666', '#333333'],
+				gradientLoop: true,
+				gradientEase: 'swing', //linear, swing
+				//ratio: 1 / 1,
+				//  patternImage: 'js/patterns/pattern.png',
+				//  patternAnimationX: 'none',
+				// patternAnimationY: 'none',
+				//particles
+				shape: 'square', //circle, square, image:url
+				colors: ['#e0f4ff', 'rgba(44, 62, 80,0.7)', 'rgba(52, 73, 94,0.9)'],
+				overlay: 'none', //dots, horizontal-lines, vertical-lines, simple-grid, grid, waves, diagonal-lines, image:url
+				baseColor: '#caedff',
+				wrapNeighbours: true
+			});
+		});
+	</script>
+
+
+	<script language="javascript">
+		<!--
+		function inputCheck() {
+			var frm = document.frm;
+			if (frm.admin_id.value == "") {
+				alert("관리자 아이디를 입력하세요");
+				frm.admin_id.focus();
+				return;
+			}
+
+			if (frm.admin_pw.value == "") {
+				alert("관리자 비밀번호를 입력하세요");
+				frm.admin_pw.focus();
+				return;
+			}
+
+			frm.submit();
+		}
+
+		function inputFocus() {
+
+			var frm = document.frm;
+			var admin_id = frm.admin_id.value;
+			var admin_pw = frm.admin_pw.value;
+
+			if (admin_id == "") {
+				frm.admin_id.focus();
+			} else {
+				if (admin_pw == "") frm.admin_pw.focus();
+			}
+
+		}
+		-->
+	</script>
+
+</head>
+
+<body>
+
+	<div id="wrap">
+		<div id="login_wrap" style="width:520px;">
+			<div id="login_con" class="login_con_shadow">
+				<div class="login_logo_con" style="padding: 20px 0 20px 0;">
+					<img src="./img/main_logo_king.svg"></a>
+				</div>
+				<div class="login_title_con" style="margin-top:30px;">
+					<span class="login_title_text"><?= $site_info['site_title'] ?> 관리시스템</span>
+				</div>
+
+				<form name="frm" action="admin_login.php" method="POST" onsubmit="return inputFormCheck(this)">
+					<div class="login_ipnut_con">
+						<input type="text" name="admin_id" value="<?= $admin_id ?>" placeholder="아이디" class="login_ipnut" autofocus>
+					</div>
+
+					<div class="login_ipnut_con">
+						<input type="password" name="admin_pw" value="<?= $admin_pw ?>" placeholder="비밀번호" class="login_ipnut" />
+					</div>
+
+					<div class="login_btn_con">
+						<button type="submit" class="login_btn">로그인</button>
+					</div>
+
+
+					<div class="login_intro_text_con">
+						<span class="login_intro_text">
+							Copyright &copy; <?= $site_info['site_title'] ?>, All rights reserved.
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

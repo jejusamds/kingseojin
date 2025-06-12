@@ -1,0 +1,55 @@
+Time : 19:00:24
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : INSERT INTO df_site_inquiry_buy SET f_product = :f_product, f_name = :f_name, f_tel = :f_tel, f_build_place = :f_build_place, f_inquiry_contents = :f_inquiry_contents, wdate = NOW(), wip = :f_wip,
+
+Time : 18:59:42
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : INSERT INTO df_site_inquiry_buy SET f_product = :f_product, f_name = :f_name, f_tel = :f_tel, f_build_place = :f_build_place, f_inquiry_contents = :f_inquiry_contents, wdate = NOW(), wip = :f_wip,
+
+Time : 18:59:14
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : INSERT INTO df_site_inquiry_buy SET f_product = :f_product, f_name = :f_name, f_tel = :f_tel, f_build_place = :f_build_place, f_inquiry_contents = :f_inquiry_contents, wdate = NOW(), wip = :f_wip,
+
+Time : 17:09:48
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:58:48
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:58:48
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:53
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:53
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:52
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:52
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:49
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:49
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:44
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC
+
+Time : 13:43:43
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'df77_hsmodular.df_site_event' doesn't exist
+Raw SQL : 	Select	COUNT(*) 	From	df_site_event 	Where	1 = 1    Order by idx DESC

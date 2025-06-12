@@ -1,0 +1,19 @@
+Time : 10:13:33
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = 'notice'  AND ( subject LIKE :keyword OR content LIKE :keyword2 ) 
+
+Time : 10:13:32
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = 'notice'  AND ( subject LIKE :keyword OR content LIKE :keyword2 ) 
+
+Time : 10:12:31
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = 'notice'  AND ( subject LIKE :keyword OR content LIKE :keyword ) 
+
+Time : 10:12:20
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = 'notice'  AND ( subject LIKE :keyword OR content LIKE :keyword ) 
+
+Time : 10:12:13
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : SELECT COUNT(1) FROM df_site_bbs  WHERE code = 'notice'  AND ( subject LIKE :keyword OR content LIKE :keyword ) 

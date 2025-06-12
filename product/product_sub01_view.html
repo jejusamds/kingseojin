@@ -1,0 +1,211 @@
+<?php
+$Menu = "03";
+$sMenu = "03-1";
+include $_SERVER['DOCUMENT_ROOT'] . '/include/header.html';
+
+// 부모 페이지 idx
+$pidx = (int) ($_GET['pidx'] ?? 0); 
+
+// 1) 제품 정보 + 카테고리(1차) 조회
+$idx = (int) ($_GET['idx'] ?? 0);
+$sql = "SELECT p.*,
+      c1.f_name AS cat1_name
+    FROM df_site_product AS p
+    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx      = c3.f_idx
+    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx  = c2.f_idx
+    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx  = c1.f_idx
+    WHERE p.f_idx = :idx
+  ";
+$product = $db->row($sql, ['idx' => $idx], PDO::FETCH_ASSOC);
+
+if (empty($product)) {
+    error('잘못된 접근입니다.', '/');
+    exit;
+}
+
+// 2) URL 복사용
+$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$url = $scheme . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+// 3) 썸네일 경로 결정
+$thumb = $product['f_thumbnail']
+    ? "/userfiles/contents/product/{$product['f_thumbnail']}"
+    : "/img/product/product_sub01_img_con_none_img.png";
+?>
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <div class="contents_con">
+                <div class="product_sub01_view_con">
+                    <div class="contents_con">
+                        <div class="goods_con">
+                            <div class="img_con" style="background-image:url('<?= $thumb ?>');">
+                                <img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지"
+                                    class="fx" />
+                            </div>
+
+                            <div class="posts_con">
+                                <div class="text_con">
+                                    <div class="title_con">
+                                        <div class="text01_con">
+                                            <span><?= htmlspecialchars($product['cat1_name'], ENT_QUOTES) ?></span>
+                                        </div>
+                                        <div class="text02_con">
+                                            <span><?= htmlspecialchars($product['f_name'], ENT_QUOTES) ?></span>
+                                            <a href="javascript:copy_url('<?= $url ?>');" class="share_btn">
+                                                <img src="/img/product/product_sub01_view_share_icon.svg" alt="아이콘"
+                                                    class="fx" />
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="option_con">
+                                        <ul>
+                                            <li>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left" class="title_td"><span>원산지</span></td>
+                                                            <td align="left" class="info_td">
+                                                                <span><?= htmlspecialchars($product['f_origin'], ENT_QUOTES) ?></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                            <li>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left" class="title_td"><span>사이즈</span></td>
+                                                            <td align="left" class="info_td">
+                                                                <span><?= htmlspecialchars($product['f_size'], ENT_QUOTES) ?></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                            <li>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left" class="title_td"><span>재질</span></td>
+                                                            <td align="left" class="info_td">
+                                                                <span><?= htmlspecialchars($product['f_material'], ENT_QUOTES) ?></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                            <li>
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left" class="title_td"><span>판매가</span></td>
+                                                            <td align="left" class="info_td">
+                                                                <span><?= htmlspecialchars($product['f_price'], ENT_QUOTES) ?></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="btn_con">
+                                    <a href="/center/center_sub04.html" class="a_btn a_btn01">견적문의하기</a>
+                                    <a href="/product/product_sub01_list.html?idx=<?=$pidx?>" class="a_btn a_btn02">제품목록</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="posts_con">
+                            <div class="title_con">
+                                <span>제품상세</span>
+                            </div>
+                            <div class="contents_con">
+                                <div class="text_con">
+                                    <span>
+                                        <?= $product['f_details'] ?>
+                                    </span>
+                                </div>
+
+                                <div class="img_con">
+                                    <?= $product['f_details_2'] ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btn_con">
+                        <a href="/product/product_sub01_list.html?idx=<?=$pidx?>" class="a_btn">목록</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function copy_url(val) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = val;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        alert('URL이 복사되었습니다.');
+    }
+</script>
+
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		gsap.registerPlugin(ScrollTrigger, CustomEase);
+	
+		setTimeout(function(){
+			// .product_sub01_view_con 애니메이션을 기록할 변수
+			let product_sub01_view = null;
+			
+			// #brandstory_sub01_info01 애니메이션
+			gsap.to(".product_sub01_view_con", {
+				scrollTrigger: {
+					trigger: ".product_sub01_view_con",
+					start: "top center",
+					end: "bottom center",
+					onEnter: () => {
+						// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+						if (!product_sub01_view) {
+							// 타임라인 생성
+							product_sub01_view = gsap.timeline();
+
+							//
+							product_sub01_view.to(".product_sub01_view_con > .contents_con > .goods_con > .img_con, .product_sub01_view_con > .contents_con > .goods_con > .posts_con, .product_sub01_view_con > .contents_con > .posts_con", {
+								opacity: "1",
+								translateY: 0,
+								ease: "ease",
+								duration: 0.8,
+								stagger: {
+									each: 0.2,
+									from: "start",
+								},
+							});
+						}
+					},
+					onLeaveBack: () => {
+						// 실행 중인 애니메이션 중지 및 초기화
+						if (product_sub01_view) {
+							product_sub01_view.kill();
+							product_sub01_view = null;
+						}
+					},
+					//markers: true,
+				},
+			});
+		}, 500);
+
+		ScrollTrigger.refresh();
+	});
+</script>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.html'; ?>

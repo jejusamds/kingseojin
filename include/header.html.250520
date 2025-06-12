@@ -1,0 +1,1118 @@
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/include/common.php";
+
+    // 1) 1~2차 카테고리 전체 조회
+    $sql = "
+    SELECT f_idx, f_parent_idx, f_depth, f_name
+    FROM df_site_category
+    WHERE f_depth IN (1,2)
+    ORDER BY f_depth, f_order
+    ";
+    $cats = $db->query($sql, [], PDO::FETCH_OBJ);
+
+    // 2) id → 노드 맵 생성 (depth1,2 만)
+    $nodes = [];
+    foreach ($cats as $c) {
+        $nodes[$c->f_idx] = [
+            'idx'      => $c->f_idx,
+            'parent'   => $c->f_parent_idx,
+            'depth'    => $c->f_depth,
+            'name'     => $c->f_name,
+            'children' => []
+        ];
+    }
+
+    // 3) depth1 아래에 depth2 붙이기
+    foreach ($nodes as $id => $node) {
+        if ($node['depth'] === 2 && isset($nodes[$node['parent']])) {
+            $nodes[$node['parent']]['children'][$id] = $node;
+        }
+    }
+
+    // 4) 최상위(depth1)만 메뉴로
+    $menu = array_filter($nodes, function($n){
+        return $n['depth'] === 1;
+    });
+
+    // 5) PC 헤더용 2줄 분할
+    $menuItems   = array_values($menu);
+    $firstCount  = 5;  // 1줄에 넣을 카테고리 개수 (원하는 수로 조정 가능)
+    $rows = [
+        array_slice($menuItems, 0, $firstCount),
+        array_slice($menuItems, $firstCount),
+    ];
+
+
+	// 현재 페이지 url
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http');
+	$http_host = $_SERVER['HTTP_HOST'];
+	$request_uri = $_SERVER['REQUEST_URI'];
+	$url = $protocol . '://' . $http_host . $request_uri;
+
+	if( $sMenu == "01-1" ){
+		$route_text01 = "회사소개";
+		$route_text02 = "CEO 인사말";
+		$title_text = "CEO 인사말";
+	}else if( $sMenu == "01-2" ){
+		$route_text01 = "회사소개";
+		$route_text02 = "연혁";
+		$title_text = "연혁";
+	}else if( $sMenu == "01-3" ){
+		$route_text01 = "회사소개";
+		$route_text02 = "인증자료";
+		$title_text = "인증자료";
+	}else if( $sMenu == "01-4" ){
+		$route_text01 = "회사소개";
+		$route_text02 = "오시는길";
+		$title_text = "오시는길";
+	}else if( $sMenu == "02-1" ){
+		$route_text01 = "브랜드스토리";
+		$route_text02 = "브랜드스토리";
+		$title_text = "브랜드스토리";
+	}else if( $sMenu == "03-1" ){
+		$route_text01 = "제품소개";
+		$route_text02 = "제품소개";
+		$title_text = "제품소개";
+	}else if( $sMenu == "04-1" ){
+		$route_text01 = "고객센터";
+		$route_text02 = "공지사항";
+		$title_text = "공지사항";
+	}else if( $sMenu == "04-2" ){
+		$route_text01 = "고객센터";
+		$route_text02 = "제품사용후기";
+		$title_text = "제품사용후기";
+	}else if( $sMenu == "04-3" ){
+		$route_text01 = "고객센터";
+		$route_text02 = "상품 및 구매후기";
+		$title_text = "상품 및 구매후기";
+	}else if( $sMenu == "04-4" ){
+		$route_text01 = "고객센터";
+		$route_text02 = "견적문의";
+		$title_text = "견적문의";
+	}else{
+		$route_text01 = "경로01";
+		$route_text02 = "경로02";
+		$title_text = "타이틀";
+	}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<title>킹서진</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=3, user-scalable=yes">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/img/favicon.ico" />
+
+<!--url 전송시-->
+<meta property="og:url" content="<?=$url?>" />
+<meta property="og:title" content="킹서진" />
+<meta property="og:site_name" content="킹서진" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/img/url_img.png" />
+<meta property="og:description" content="킹서진" />
+<meta name="description" content="킹서진" />
+<meta name="keywords" content="킹서진" />
+<link rel="canonical" href="<?=$url?>" />
+<!--url 전송시-->
+
+<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!--<link rel="stylesheet" type="text/css" href="/css/swiper.css" />-->
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/common_all.css" />
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/jquery.rwdImageMaps.js"></script>
+<!--<script type="text/javascript" src="/js/swiper.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script type="text/javascript" language="javascript">
+	$(document).ready(function(){
+		$('img[usemap]').rwdImageMaps();
+	});
+</script>
+
+</head>
+<body>
+
+<div id="wrap" class="go_wrap">
+
+	<div id="header" class="<?php if($Main!='Y'){?>sub<?php }else{?><?php }?>">
+		<div class="contents_con">
+			<div class="logo_con">
+				<a href="/index_tmp.html">
+					<img src="/img/main/main_logo.svg" alt="메인 로고" class="fx off" />
+					<img src="/img/main/main_logo_on.svg" alt="메인 로고 on" class="fx on" />
+				</a>
+			</div>
+
+			<div class="nav">
+				<div class="list_con">
+					<ul>
+						<li class="li01">
+							<a href="/company/company_sub01.html">
+								<span>
+									회사소개
+									<div class="bar"></div>
+								</span>
+							</a>
+
+							<div class="sub_nav">
+								<div class="contents_con">
+									<div class="text_con">
+										<div class="text01_con">
+											<span>
+												회사소개
+											</span>
+										</div>
+
+										<div class="text02_con">
+											<span>
+												업소용 주방용품의 선두주자 킹서진을 <br />
+												소개 합니다.
+											</span>
+										</div>
+									</div>
+
+									<div class="list_con">
+										<div class="type01_con">
+											<ul>
+												<li>
+													<a href="/company/company_sub01.html">
+														CEO 인사말
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub02.html">
+														연혁
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub03.html">
+														인증자료
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub04.html">
+														오시는길
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="li02">
+							<a href="/brandstory/brandstory_sub01.html">
+								<span>
+									브랜드스토리
+									<div class="bar"></div>
+								</span>
+							</a>
+
+							<div class="sub_nav">
+								<div class="contents_con">
+									<div class="text_con">
+										<div class="text01_con">
+											<span>
+												브랜드스토리
+											</span>
+										</div>
+
+										<div class="text02_con">
+											<span>
+												킹서진의 브랜드를 소개합니다.
+											</span>
+										</div>
+									</div>
+
+									<div class="list_con">
+										<div class="type01_con">
+											<ul>
+												<li>
+													<a href="/brandstory/brandstory_sub01.html">
+														브랜드스토리
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="li03">
+							<a href="/product/product_sub01.html">
+								<span>
+									제품소개
+									<div class="bar"></div>
+								</span>
+							</a>
+
+							<div class="sub_nav">
+								<div class="contents_con">
+									<div class="text_con">
+										<div class="text01_con">
+											<span>
+												제품소개
+											</span>
+										</div>
+
+										<div class="text02_con">
+											<span>
+												킹서진의 다양한 제품들을 <br />
+												소개합니다.
+											</span>
+										</div>
+									</div>
+
+									<div class="list_con">
+										<div class="type02_con">
+											<div class="type02_div">
+												<ul>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	냄비 및 후라이팬
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			냄비
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			후라이팬
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			웍
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			볶음팬
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			철판류
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			기타소품
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	테이블웨어 및 커트러리류
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			접시
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			컵
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			식기
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			집게
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			국자
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			스쿠프
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			주방소품
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	혼술, 야외용품
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			혼술, 혼밥용
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			캠핑용
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	바구니 및 건지기류
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			바구니
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			와이어바스켓
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			건지기
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			드레인
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			구씨
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	용기 및 단체급식
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			BMP
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			멸치통
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			용기
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			대야
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			기타
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			팬악세사리
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			보존용기
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			식판
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			업소용 소품
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+
+											<div class="type02_div">
+												<ul>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	렌지 및 구이판
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			렌지류
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			구이판
+																		</a>
+																	</li>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			화덕/화로
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+													<li>
+														<div class="list_div">
+															<div class="title_con">
+																<span>
+																	운반카 및 물통
+																</span>
+															</div>
+
+															<div class="list_con">
+																<ul>
+																	<li>
+																		<a href="/product/product_sub01_list.html">
+																			운반카 및 물통
+																		</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="li04">
+							<a href="/center/center_sub01.html">
+								<span>
+									고객센터
+									<div class="bar"></div>
+								</span>
+							</a>
+
+							<div class="sub_nav">
+								<div class="contents_con">
+									<div class="text_con">
+										<div class="text01_con">
+											<span>
+												고객센터
+											</span>
+										</div>
+
+										<div class="text02_con">
+											<span>
+												킹서진의 소식과 제품후기를 <br />
+												확인해보세요.
+											</span>
+										</div>
+									</div>
+
+									<div class="list_con">
+										<div class="type01_con">
+											<ul>
+												<li>
+													<a href="/center/center_sub01.html">
+														공지사항
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub02.html">
+														제품사용후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub03.html">
+														상품 및 구매후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub04.html">
+														견적문의
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="m_header" class="<?php if($Main!='Y'){?>sub<?php }else{?><?php }?>">
+		<div class="contents_con">
+			<table cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td align="left" class="logo_td">
+							<a href="/index_tmp.html">
+								<img src="/img/main/main_logo.svg" alt="메인 로고" class="fx off" />
+								<img src="/img/main/main_logo_on.svg" alt="메인 로고 on" class="fx on" />
+							</a>
+						</td>
+						<td align="left" class="blank_td">
+							&nbsp;
+						</td>
+						<td align="left" class="btn_td">
+							<a href="javascript:m_main_nav();">
+								<img src="/img/main/m_header_menu_btn.png" alt="모바일 헤더 메뉴 버튼" class="fx off" />
+								<img src="/img/main/m_header_menu_btn_on.png" alt="모바일 헤더 메뉴 버튼 on" class="fx on" />
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div id="m_main_nav_bg"></div>
+	<div id="m_main_nav">
+		<div class="contents_con">
+			<div class="header_con">
+				<div class="contents_con">
+					<table cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr>
+								<td align="left" class="logo_td">
+									<a href="/index_tmp.html">
+										<img src="/img/main/main_logo_on.svg" alt="메인 로고" class="fx" />
+									</a>
+								</td>
+								<td align="left" class="blank_td">
+									&nbsp;
+								</td>
+								<td align="left" class="btn_td">
+									<a href="javascript:m_main_nav();">
+										<img src="/img/main/m_header_menu_close_btn.png" alt="모바일 헤더 메뉴 버튼" class="fx" />
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="list_con">
+				<div class="nav">
+					<ul>
+						<li>
+							<a href="javascript:void(0);" class="on" val="list01">
+								회사소개
+								<div class="bar"></div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" val="list02">
+								브랜드스토리
+								<div class="bar"></div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" val="list03">
+								제품소개
+								<div class="bar"></div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" val="list04">
+								고객센터
+								<div class="bar"></div>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="list_con">
+					<div class="scroll_con">
+						<div class="contents_con">
+							<div class="contents_div list01">
+								<div class="type01_con">
+									<ul>
+										<li>
+											<a href="/company/company_sub01.html">
+												CEO 인사말
+											</a>
+										</li>
+										<li>
+											<a href="/company/company_sub02.html">
+												연혁
+											</a>
+										</li>
+										<li>
+											<a href="/company/company_sub03.html">
+												인증자료
+											</a>
+										</li>
+										<li>
+											<a href="/company/company_sub04.html">
+												오시는길
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="contents_div list02">
+								<div class="type01_con">
+									<ul>
+										<li>
+											<a href="/brandstory/brandstory_sub01.html">
+												브랜드스토리
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="contents_div list03">
+								<div class="type02_con">
+									<ul>
+										<li>
+											<a href="/product/product_sub01.html">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	제품소개
+																</span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	냄비 및 후라이팬
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															냄비
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															후라이팬
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															웍
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															볶음팬
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															철판류
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															기타소품
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	테이블웨어 및 커트러리류
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															접시
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															컵
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															식기
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															집게
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															국자
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															스쿠프
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															주방소품
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	혼술, 야외용품
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															혼술, 혼밥용
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															캠핑용
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	바구니 및 건지기류
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															바구니
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															와이어바스켓
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															건지기
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															드레인
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															구씨
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	용기 및 단체급식
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															BMP
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															멸치통
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															용기
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															대야
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															기타
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															팬악세사리
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															보존용기
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															식판
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															업소용 소품
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	렌지 및 구이판
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															렌지류
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															구이판
+														</a>
+													</li>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															화덕/화로
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="javascript:void(0);" class="has">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	운반카 및 물통
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/main/m_main_nav_list_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="sub_nav">
+												<ul>
+													<li>
+														<a href="/product/product_sub01_list.html">
+															운반카 및 물통
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="contents_div list04">
+								<div class="type01_con">
+									<ul>
+										<li>
+											<a href="/center/center_sub01.html">
+												공지사항
+											</a>
+										</li>
+										<li>
+											<a href="/center/center_sub02.html">
+												제품사용후기
+											</a>
+										</li>
+										<li>
+											<a href="/center/center_sub03.html">
+												상품 및 구매후기
+											</a>
+										</li>
+										<li>
+											<a href="/center/center_sub04.html">
+												견적문의
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,291 @@
+<?php
+$Menu = "04";
+$sMenu = "04-2";
+
+include $_SERVER['DOCUMENT_ROOT'] . '/include/header.html';
+
+$code = "review";
+
+// 1) idx 파라미터 검사
+$idx = isset($_GET['idx']) ? (int) $_GET['idx'] : 0;
+if ($idx < 1) {
+    echo "<script>alert('잘못된 접근입니다.');history.back();</script>";
+    exit;
+}
+
+$param = "page={$page}&search_type={$search_type}&keyword={$keyword}";
+
+// 2) 조회수 증가
+$db->bind('idx', $idx);
+$db->query("UPDATE df_site_bbs SET `count` = `count` + 1 WHERE idx = :idx");
+
+// 3) 글 정보 조회 (code = 'notice' 조건 포함)
+$sql = "
+        SELECT 
+            idx,
+            code,
+            name,
+            subject,
+            content,
+            DATE_FORMAT(wdate, '%Y.%m.%d') AS date_fmt,
+            privacy
+        FROM df_site_bbs
+        WHERE code = :code AND idx = :idx
+    ";
+$db->bind('code', $code);
+$db->bind('idx', $idx);
+$rows = $db->query($sql);
+if (!$rows) {
+    echo "<script>alert('해당 글이 존재하지 않습니다.');history.back();</script>";
+    exit;
+}
+$row = $rows[0];
+
+if ($row['privacy'] == 'Y') {
+    // 비밀 글인 경우 이전페이지에서 비밀번호 검증이 이루어 졌는지 확인해야함.
+    if (empty($_SESSION['bbs_auth'][$idx])) {
+        error('잘못된 접근입니다.');
+        exit;
+    } else {
+        // 아래 코드 실행시 매번 비번 입력해야함
+        //unset($_SESSION['bbs_auth'][$idx]);
+    }
+}
+
+// 4) 첨부파일 목록 조회
+$db->bind('bbsidx', $idx);
+$files = $db->query("
+        SELECT upfile, upfile_name
+          FROM df_site_bbs_files
+         WHERE bbsidx = :bbsidx
+         ORDER BY idx ASC
+    ");
+
+// 5) 관리자 답변
+$sql = "
+        SELECT 
+            idx,
+            code,
+            name,
+            subject,
+            content,
+            DATE_FORMAT(wdate, '%Y.%m.%d') AS date_fmt
+        FROM df_site_bbs
+        WHERE code = :code AND parno = :idx
+    ";
+$db->bind('code', $code);
+$db->bind('idx', $idx);
+$reply = $db->row($sql);
+?>
+
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <?php
+            include $_SERVER['DOCUMENT_ROOT'] . '/include/sub_tr.html';
+            ?>
+
+            <div class="contents_con">
+
+                <div class="notice_view_con">
+                    <div class="contents_con">
+                        <div class="view_con">
+                            <div class="title_con">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td align="left" class="title_td">
+                                                <div class="title_con">
+                                                    <span>
+                                                        <?= htmlspecialchars($row['subject'], ENT_QUOTES) ?>
+                                                    </span>
+                                                </div>
+
+                                                <div class="info_con">
+                                                    <div class="w_con">
+                                                        <span>
+                                                            <?= htmlspecialchars($row['name'], ENT_QUOTES) ?>
+                                                        </span>
+                                                    </div>
+
+                                                    <div class="m_con">
+                                                        <span>
+                                                            <?= htmlspecialchars($row['name'], ENT_QUOTES) ?> <span
+                                                                class="bar">｜</span> <?= $row['date_fmt'] ?>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td align="center" class="date_td">
+                                                <span>
+                                                    <?= $row['date_fmt'] ?>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="contents_con">
+                                <div class="posts_con">
+                                    <div class="contents_con">
+                                        <?= $row['content'] ?>
+                                    </div>
+
+                                    <div class="btn_con">
+                                        <a href="/center/center_sub02_auth.html?idx=<?=$idx?>&mode=update" class="a_btn">
+                                            수정
+                                        </a>
+
+                                        <a href="/center/center_sub02_auth.html?idx=<?=$idx?>&mode=delete" class="a_btn">
+                                            삭제
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <?php if ($files): ?>
+                                    <div class="file_con">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="left" class="title_td">
+                                                        <img src="/img/sub/notice_file_icon.svg" alt="파일 아이콘" class="fx" />
+                                                        <span>첨부파일</span>
+                                                    </td>
+                                                    <td align="left" class="info_td">
+                                                        <ul>
+                                                            <?php foreach ($files as $file): ?>
+                                                                <li>
+                                                                    <a href="/userfiles/<?= htmlspecialchars($row['code'], ENT_QUOTES) ?>/<?= htmlspecialchars($file['upfile'], ENT_QUOTES) ?>"
+                                                                        download="<?= htmlspecialchars($file['upfile_name'], ENT_QUOTES) ?>">
+                                                                        <?= htmlspecialchars($file['upfile_name'], ENT_QUOTES) ?>
+                                                                    </a>
+                                                                </li>
+                                                            <?php endforeach; ?>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <?php if (!empty($reply)) { ?>
+                            <div class="answer_con">
+                                <div class="title_con">
+                                    <div class="name_con">
+                                        <span>
+                                            관리자
+                                        </span>
+                                    </div>
+
+                                    <div class="date_con">
+                                        <span>
+                                            <?= $reply['date_fmt'] ?>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="info_con">
+                                    <span>
+                                        <?= $reply['content'] ?>
+                                    </span>
+                                </div>
+                            </div>
+                        <?php } ?>
+
+
+                    </div>
+
+                    <div class="btn_con">
+                        <a href="/center/center_sub02.html" class="a_btn">
+                            목록
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+
+    $(function () {
+        $('#delete_a').on('click', function (e) {
+            e.preventDefault();
+
+            if (confirm('삭제하시겠습니까?')) {
+                $.ajax({
+                    url: '/controller/bbs_controller.php',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'mode': 'delete_bbs', 'idx': '<?= $idx ?>' },
+                    success: function (res) {
+                        console.log(res);
+                        alert(res.msg);
+                        if (res.result == 'ok') {
+                            location.href = res.redirect;
+                        }
+                    }, error: function (e) {
+                        console.log(e);
+                        alert("서버와의 통신 중 오류가 발생했습니다.");
+                    }
+                })
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        gsap.registerPlugin(ScrollTrigger, CustomEase);
+
+        setTimeout(function () {
+            // .notice_view_con 애니메이션을 기록할 변수
+            let notice_view = null;
+
+            // #brandstory_sub01_info01 애니메이션
+            gsap.to(".notice_view_con", {
+                scrollTrigger: {
+                    trigger: ".notice_view_con",
+                    start: "top center",
+                    end: "bottom center",
+                    onEnter: () => {
+                        // 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+                        if (!notice_view) {
+                            // 타임라인 생성
+                            notice_view = gsap.timeline();
+
+                            //
+                            notice_view.to(".notice_view_con > .contents_con, .notice_view_con > .btn_con", {
+                                opacity: "1",
+                                translateY: 0,
+                                ease: "ease",
+                                duration: 0.8,
+                                stagger: {
+                                    each: 0.2,
+                                    from: "start",
+                                },
+                            });
+                        }
+                    },
+                    onLeaveBack: () => {
+                        // 실행 중인 애니메이션 중지 및 초기화
+                        if (notice_view) {
+                            notice_view.kill();
+                            notice_view = null;
+                        }
+                    },
+                    //markers: true,
+                },
+            });
+        }, 500);
+
+        ScrollTrigger.refresh();
+    });
+</script>
+
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/include/footer.html';
+?>

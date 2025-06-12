@@ -1,0 +1,226 @@
+<?php
+	$Menu = "03";
+	$sMenu = "03-1";
+	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+?>
+
+	<div id="container">
+		<div id="sub_con">
+			<div class="contents_con">
+				<div class="contents_con">
+					
+					<div class="product_sub01_con">
+						<div class="contents_con">
+                        <?php foreach($menu as $lvl1): ?>
+                            <div class="contents_div">
+								<div class="text_con">
+									<div class="title_con">
+										<span>
+											<?=htmlspecialchars($lvl1['name'])?>
+										</span>
+									</div>
+									<div class="list_con">
+										<ul>
+                                        <?php foreach($lvl1['children'] as $lvl2): ?>
+                                            <li>
+												<a href="/product/product_sub01_list.html?idx=<?=$lvl2['idx']?>">
+													<?=htmlspecialchars($lvl2['name'])?>
+												</a>
+											</li>
+                                        <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+								</div>
+								<!-- 슬라이드 시작 -->
+								<div class="slide_con">
+									<div class="swiper product_sub01_slide">
+										<div class="swiper-wrapper">
+
+                                            <?php
+                                            foreach($lvl1['children'] as $lvl2):
+                                                $thumbnail = '/img/product/product_sub01_slide_img_con_none_img.png';
+                                                $default_path = "/userfiles/contents/category/";
+                                                if (!empty($lvl2['thumbnail']) && is_file($_SERVER['DOCUMENT_ROOT'] . $default_path . $lvl2['thumbnail'])) {
+                                                    $thumbnail = $default_path . $lvl2['thumbnail'];
+                                                }
+                                            ?>
+                                                <div class="swiper-slide product_sub01_slide_div" data-swiper-autoplay="4000">
+                                                    <a href="/product/product_sub01_list.html?idx=<?=$lvl2['idx']?>">
+                                                        <div class="img_con" style="background-image:url('<?=$thumbnail?>');">
+                                                            <img src="/img/product/product_sub01_slide_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            <?php endforeach; ?>
+
+										</div>
+									</div>
+								</div>
+								<!-- 슬라이드 끝 -->
+                            </div>
+                        <?php endforeach; ?>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+		
+		});
+
+		// 초기 화면 크기 저장
+		var product_sub01_initialWidth = window.innerWidth;
+		var product_sub01_isFirstLoad = true;
+		// 리사이즈 예외처리
+		var product_sub01_resizeTimer;
+		// 제품소개 슬라이드 배열로 관리
+		var product_sub01_sliders = [];
+
+		// 슬라이더 초기화 함수
+		function initializeProductSliders() {
+			// 기존 슬라이더 제거
+			if(product_sub01_sliders.length > 0) {
+				product_sub01_sliders.forEach(function(slider) {
+					if(slider) {
+						slider.destroy();
+					}
+				});
+				product_sub01_sliders = [];
+			}
+			
+			// 슬라이드 요소 선택 전 투명도 조정
+			$(".product_sub01_con > .contents_con .contents_div > .slide_con").css({"opacity":"0","transition":"none"});
+			
+			// 각 슬라이더 초기화
+			$('.product_sub01_slide').each(function(i, v) {
+				// 현재 슬라이드 내의 slide_div 개수 확인
+				let slideCount = $(this).find(".product_sub01_slide_div").length;
+				
+				let sliderName = 'productSlider' + i;
+				$(this).attr('id', sliderName);
+				let sliderId = '#' + sliderName;
+				
+				let swiperOptions = {
+					slidesPerView: 'auto',
+					observer: true,
+					observeParents: true,
+					speed: 1500
+				};
+				
+				if (slideCount > 3) {
+					swiperOptions.loop = true;
+					swiperOptions.autoplay = {
+						delay: 4000,
+						disableOnInteraction: false
+					};
+				} else {
+					swiperOptions.loop = false;
+					swiperOptions.simulateTouch = false;
+					swiperOptions.allowTouchMove = false;
+				}
+				
+				// 슬라이더 생성 및 배열에 저장
+				let newSlider = new Swiper(sliderId, swiperOptions);
+				product_sub01_sliders.push(newSlider);
+			});
+			
+			// 슬라이드 요소 투명도 복원
+			setTimeout(function() {
+				$(".product_sub01_con > .contents_con .contents_div > .slide_con").css({"opacity":"1","transition":"all 0.5s ease"});
+			}, 100);
+		}
+
+		// 화면 로드 시 초기화
+		$(document).ready(function() {
+			initializeProductSliders();
+			product_sub01_isFirstLoad = false;
+		});
+
+		// 화면 리사이징
+		$(window).resize(function() {
+			// 현재 window 너비
+			var currentWidth = window.innerWidth;
+			
+			// 너비가 변경되지 않은 경우(스크롤, 상태바 동작) 무시
+			if(currentWidth === product_sub01_initialWidth && !product_sub01_isFirstLoad) {
+				return;
+			}
+			
+			clearTimeout(product_sub01_resizeTimer);
+			
+			product_sub01_resizeTimer = setTimeout(function() {
+				// 실제 리사이징이 발생한 경우에만 처리
+				if(currentWidth !== product_sub01_initialWidth || product_sub01_isFirstLoad) {
+					// 슬라이더 재초기화
+					initializeProductSliders();
+					
+					// 화면 너비에 따른 추가 처리
+					if (window.innerWidth > 1024) {
+						// PC 버전 추가 처리
+					} else {
+						// 모바일 버전 추가 처리
+					}
+					
+					product_sub01_initialWidth = currentWidth;
+					product_sub01_isFirstLoad = false;
+				}
+			}, 500);
+		});
+	</script>
+
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function(){
+			gsap.registerPlugin(ScrollTrigger, CustomEase);
+		
+			setTimeout(function(){
+				// .product_sub01_con 애니메이션을 기록할 변수
+				let product_sub01 = null;
+				
+				// #brandstory_sub01_info01 애니메이션
+				gsap.to(".product_sub01_con", {
+					scrollTrigger: {
+						trigger: ".product_sub01_con",
+						start: "top center",
+						end: "bottom center",
+						onEnter: () => {
+							// 실행 중인 애니메이션이 없으면 애니메이션 생성 및 실행
+							if (!product_sub01) {
+								// 타임라인 생성
+								product_sub01 = gsap.timeline();
+
+								//
+								product_sub01.to(".product_sub01_con > .contents_con .contents_div", {
+									opacity: "1",
+									translateY: 0,
+									ease: "ease",
+									duration: 0.8,
+									stagger: {
+										each: 0.2,
+										from: "start",
+									},
+								});
+							}
+						},
+						onLeaveBack: () => {
+							// 실행 중인 애니메이션 중지 및 초기화
+							if (product_sub01) {
+								product_sub01.kill();
+								product_sub01 = null;
+							}
+						},
+						//markers: true,
+					},
+				});
+			}, 500);
+
+			ScrollTrigger.refresh();
+		});
+	</script>
+
+<?php
+	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
+?>	

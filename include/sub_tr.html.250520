@@ -1,0 +1,250 @@
+				<div class="title_con">
+					<span>
+						<?=$title_text?> - 퍼블
+
+						<!--
+							제품소개 제품 이동 시 해당 제품명으로 나와야 합니다.
+							현재는 페이지 넘버로 타이틀 불러와서 제품소개 로 고정인 상태
+						-->
+					</span>
+				</div>
+
+				<div class="route_con">
+					<div class="contents_con">			
+						<div class="list_con">
+							<ul>
+								<li class="route01">
+									<div class="contents_con">
+										<div class="btn_con">
+											<div class="bar"></div>
+
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	<?=$route_text01?>
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+												<li>
+													<a href="/company/company_sub01.html" class="<?php if($Menu=='01'){?>on<?php }else{?><?php }?>">
+														회사소개
+													</a>
+												</li>
+												<li>
+													<a href="/brandstory/brandstory_sub01.html" class="<?php if($Menu=='02'){?>on<?php }else{?><?php }?>">
+														브랜드스토리
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01.html" class="<?php if($Menu=='03'){?>on<?php }else{?><?php }?>">
+														제품소개
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub01.html" class="<?php if($Menu=='04'){?>on<?php }else{?><?php }?>">
+														고객센터
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li class="route02">
+									<div class="contents_con">
+										<div class="btn_con">
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	<?php if( $Menu != "03" ){ ?>
+																	<?=$route_text02?>
+																	<?php }else{ ?>
+																	냄비 및 후라이팬
+																	<?php } ?>
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+												<?php if( $Menu == "01" ){ ?>
+												<li>
+													<a href="/company/company_sub01.html" class="<?php if($sMenu=='01-1'){?>on<?php }else{?><?php }?>">
+														CEO 인사말
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub02.html" class="<?php if($sMenu=='01-2'){?>on<?php }else{?><?php }?>">
+														연혁
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub03.html" class="<?php if($sMenu=='01-3'){?>on<?php }else{?><?php }?>">
+														인증자료
+													</a>
+												</li>
+												<li>
+													<a href="/company/company_sub04.html" class="<?php if($sMenu=='01-4'){?>on<?php }else{?><?php }?>">
+														오시는길
+													</a>
+												</li>
+												<?php }else if( $Menu == "02" ){ ?>
+												<li>
+													<a href="/brandstory/brandstory_sub01.html" class="<?php if($sMenu=='02-1'){?>on<?php }else{?><?php }?>">
+														브랜드스토리
+													</a>
+												</li>
+												<?php }else if( $Menu == "03" ){ ?>
+                                                
+                                                <?php foreach($menu as $lvl1): ?>
+                                                <li>
+													<a href="/product/product_sub01_list.html?idx=<?=$lvl1['idx']?>" class="onoff 확인해야함">
+														<?=htmlspecialchars($lvl1['name'])?>
+													</a>
+												</li>
+                                                <?php endforeach; ?>
+
+												<?php }else if( $Menu == "04" ){ ?>
+												<li>
+													<a href="/center/center_sub01.html" class="<?php if($sMenu=='04-1'){?>on<?php }else{?><?php }?>">
+														공지사항
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub02.html" class="<?php if($sMenu=='04-2'){?>on<?php }else{?><?php }?>">
+														제품사용후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub03.html" class="<?php if($sMenu=='04-3'){?>on<?php }else{?><?php }?>">
+														상품 및 구매후기
+													</a>
+												</li>
+												<li>
+													<a href="/center/center_sub04.html" class="<?php if($sMenu=='04-4'){?>on<?php }else{?><?php }?>">
+														견적문의
+													</a>
+												</li>
+												<?php } ?>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<?php if( $Menu == "03" ){ ?>
+								<li class="route03">
+									<div class="contents_con">
+										<div class="btn_con">
+											<div class="bar"></div>
+
+											<a href="javascript:void(0);">
+												<table cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="left" class="text_td">
+																<span>
+																	냄비
+																</span>
+															</td>
+															<td align="left" class="arrow_td">
+																<img src="/img/sub/sub_route_arrow.svg" alt="화살표" class="fx" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</a>
+
+											<div class="bar"></div>
+										</div>
+
+										<div class="list_con">
+											<ul>
+                                                <?php foreach ($middle_category as $mc) : ?>
+                                                    <li>
+                                                        <a href="/product/product_sub01_list.html" class="">
+                                                            <?=$mc['name']?>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+												<li>
+													<a href="/product/product_sub01_list.html" class="on">
+														냄비
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01_list.html" class="">
+														후라이팬
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01_list.html" class="">
+														웍
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01_list.html" class="">
+														볶음팬
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01_list.html" class="">
+														철판류
+													</a>
+												</li>
+												<li>
+													<a href="/product/product_sub01_list.html" class="">
+														기타소품
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<script>
+					// 
+					$(document).on("click","#sub_con > .contents_con > .route_con > .contents_con > .list_con > ul > li > .contents_con > .btn_con",function(){
+						$("#sub_con > .contents_con > .route_con > .contents_con > .list_con > ul > li > .contents_con > .btn_con").each(function(){
+							$(this).find(".arrow_td img").css("transform","rotate(0deg)");
+							$(this).next(".list_con").slideUp();
+						});
+
+						if( $(this).next(".list_con").css("display") == "none" ){
+							$(this).find(".arrow_td img").css("transform","rotate(180deg)");
+							$(this).next(".list_con").slideDown();
+						}else{
+							$(this).find(".arrow_td img").css("transform","rotate(0deg)");
+							$(this).next(".list_con").slideUp();
+						}
+					});
+				</script>
