@@ -1,0 +1,33 @@
+/vendor/
+/PhpOffice/
+/PhpSpreadsheet/
+/Psr/
+
+# 운영체제별 불필요 파일
+.DS_Store
+Thumbs.db
+
+# 리소스 파일 무시
+# 이미지
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+
+# 문서
+*.pdf
+
+# 동영상
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.flv
+
+# 오디오
+*.mp3
+*.wav
+*.ogg

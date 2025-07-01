@@ -230,7 +230,62 @@ if ($filtered['mode'] === 'submit') {
                 return_json(['result' => 'error', 'msg' => '파일 정보 저장에 실패했습니다.']);
             }
         }
+		
+		// 견적문의 - 메일 발송
+		if ($_POST['code'] == "inquiry") {
+			$phpCli = '/usr/bin/php'; 
+			$worker = $_SERVER['DOCUMENT_ROOT'] . '/controller/mail_process.php';
 
+			// 메일 수신자, 제목, 본문 구성
+			$toEmail = "kingseojin77@hanmail.net";
+			$toName = '담당자';
+			
+			$mailSub = "[견적문의] " . $filtered['subject'];
+			$mailBody = '
+				<table cellpadding="0" cellspacing="0" style="width: 800px; border-collapse: collapse; border: 1px solid black;">
+					<tr>
+						<td style="width: 100px; height: 32px; text-align: center; font-weight: bold; background-color: #f0f0f0;">작성자</td>
+						<td style="text-align: left; padding-left: 7px; padding-right: 7px;">' . $filtered['name'] . '</td>
+					</tr>
+					<tr>
+						<td style="height: 32px; text-align: center; font-weight: bold; background-color: #f0f0f0; border-top: 1px solid black;">제 목</td>
+						<td style="text-align: left; padding-left: 7px; padding-right: 7px; border-top: 1px solid black;">' . $filtered['subject'] . '</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; font-weight: bold; background-color: #f0f0f0; border-top: 1px solid black;">문의내용</td>
+						<td style="text-align: left; padding: 7px; border-top: 1px solid black;">' . nl2br($filtered['content']) . '</td>
+					</tr>
+				</table>
+			';
+
+			// 첨부파일 절대 경로 (없으면 빈 문자열)
+			$attachmentPathFull = '';
+			if ($fileSaved) {
+				$attachmentPathFull = $_SERVER['DOCUMENT_ROOT'] . '/userfiles/' .$code . '/' . $fileSaved;
+				// 다운로드받을 파일명 설정 (원본명 또는 사용자 정의명)
+				$attachmentName = $fileOriginal ?? $fileSaved;
+			}
+
+			// CLI 인수로 넘길 때는 escapeshellarg 처리
+			$cmdParts = [
+				escapeshellcmd($phpCli),
+				escapeshellarg($worker),
+				escapeshellarg($toEmail),
+				escapeshellarg($toName),
+				escapeshellarg($mailSub),
+				escapeshellarg($mailBody),
+				escapeshellarg($email),
+			];
+			if ($attachmentPathFull !== '') {
+				$cmdParts[] = escapeshellarg($attachmentPathFull);
+				$cmdParts[] = escapeshellarg($attachmentName);
+			}
+			$cmd = implode(' ', $cmdParts) . ' > /dev/null 2>&1 &';
+
+			// 백그라운드 실행
+			exec($cmd);
+		}		
+		
         // 모두 성공 시
         return_json([
             'result' => 'ok',

@@ -37,7 +37,6 @@
 	#m_header > .contents_con {padding:0 5.56vw;}
 	#m_header > .contents_con > table > tbody > tr > td {height:15.56vw;}
 	#m_header > .contents_con > table > tbody > tr > .logo_td {width:34.72vw;}
-	#m_header > .contents_con > table > tbody > tr > .blank_td02 {width:2.78vw;}
 	#m_header > .contents_con > table > tbody > tr > .btn_td {width:10vw;}
 
 	/*모바일 메인 메뉴*/
@@ -484,24 +483,4 @@
 	.notice_auth_con > .btn_con {margin:11.11vw 0 0 0; transform:translateY(1.04vw);}
 	.notice_auth_con > .btn_con .a_btn {width:33.89vw; margin:0 0 0 1.11vw; font-size:4.17vw; line-height:10.83vw; border-radius:10.83vw;}
 
-	/*검색 리스트*/
-	.search_list_con > .title_con {margin:0 0 8.33vw 0;}
-	.search_list_con > .title_con span {font-size:7.22vw;}
-	.search_list_con > .contents_con > .search_con {margin:0 0 11.11vw 0;}
-	.search_list_con > .contents_con > .search_con .input_con {width:auto; border-bottom:0.28vw solid #121212; padding:1.94vw 1.39vw;}
-	.search_list_con > .contents_con > .search_con .input_con > table > tbody > tr > .input_td {padding:0 1.39vw 0 0;}
-	.search_list_con > .contents_con > .search_con .input_con > table > tbody > tr > .input_td .input {height:8.33vw; font-size:5vw;}
-	.search_list_con > .contents_con > .search_con .input_con > table > tbody > tr > .btn_td {width:8.33vw;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div {margin:16.67vw 0 0 0;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .title_con {margin:0 0 5.56vw 0;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .title_con span {font-size:5.56vw;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li {width:42.22vw; margin:6.11vw 4.44vw 0 0;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li > a > .list_div > .text_con {margin:2.22vw 0 0 0;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li > a > .list_div > .text_con span {font-size:3.89vw;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > .none_li span {font-size:3.89vw; line-height:300px;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li:nth-child(2n) {margin-right:0;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li:nth-child(3) {margin-top:6.11vw;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li:nth-child(4) {margin-top:6.11vw;}
-	.search_list_con > .contents_con > .reslut_con .reslut_div > .list_con > ul > li:nth-child(4n) {margin-right:0;}
-	
 }

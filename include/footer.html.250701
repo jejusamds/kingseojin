@@ -260,9 +260,6 @@
 				$(".terms_popup_con_bg").hide();
 				$(".terms_popup_con").hide();
 			}
-			
-			// 헤더 검색창 예외처리
-			$("#header > .contents_con > .search_con .input_con > table > tbody > tr > .input_td .input").val("");
 		}
 
 		basic_resizeTimer = setTimeout(function() {
@@ -301,8 +298,6 @@
 						}
 					);
 				}else{
-					// 헤더 검색창 예외처리
-					$("#header > .contents_con > .search_con .input_con > table > tbody > tr > .input_td .input").val("");
 
 					// 회전 감지 함수
 					function checkOrientation() {
