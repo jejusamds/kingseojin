@@ -160,6 +160,22 @@
 			}
 		}
 	}
+	
+	// 모바일 검색창
+	function m_header_search(){
+		if( $("#m_header > .search_con").css("display") == "none" ){
+			<?php if( $Main == "Y" ){ ?>
+			$("#m_header").addClass("search");
+			<?php } ?>
+			$("#m_header > .search_con").slideDown();
+			$("#m_header > .search_con .input_con > table > tbody > tr > .input_td .input").val("");
+		}else{
+			<?php if( $Main == "Y" ){ ?>
+			$("#m_header").removeClass("search");
+			<?php } ?>
+			$("#m_header > .search_con").slideUp();
+		}
+	}
 
 	// 모바일 메인 메뉴
 	function m_main_nav(){
@@ -241,6 +257,12 @@
 
 		// 화면 너비
 		if (window.innerWidth > 1024) {
+			// 모바일 검색창
+			if( $("#m_header > .search_con").css("display") != "none" ){
+				$("#m_header").removeClass("search");
+				$("#m_header > .search_con").hide();
+			}
+
 			// 모바일 메인 메뉴 예외처리
 			if( $("#m_main_nav").css("display") != "none" ){
 				$("body").removeClass("hidden");

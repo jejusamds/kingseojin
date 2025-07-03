@@ -39,6 +39,11 @@
 	#m_header > .contents_con > table > tbody > tr > .logo_td {width:34.72vw;}
 	#m_header > .contents_con > table > tbody > tr > .blank_td02 {width:2.78vw;}
 	#m_header > .contents_con > table > tbody > tr > .btn_td {width:10vw;}
+	#m_header > .search_con {padding:5.56vw;}
+	#m_header > .search_con .input_con {border-bottom:0.28vw solid #121212; padding:2.22vw 1.39vw;}
+	#m_header > .search_con .input_con > table > tbody > tr > .input_td {padding:0 1.39vw 0 0;}
+	#m_header > .search_con .input_con > table > tbody > tr > .input_td .input {height:8.33vw; font-size:5vw;}
+	#m_header > .search_con .input_con > table > tbody > tr > .btn_td {width:8.33vw;}
 
 	/*모바일 메인 메뉴*/
 	#m_main_nav > .contents_con > .header_con {padding:0 0 0.28vw 0;}
