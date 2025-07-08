@@ -1,229 +1,115 @@
 <?php
-	$Menu = "05";
-	$sMenu = "05-1";
-
-	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+    $Menu = "05";
+    $sMenu = "05-1";
+    include $_SERVER['DOCUMENT_ROOT'].'/include/header.html';
 ?>
+<div id="container">
+    <div id="sub_con">
+        <div class="contents_con">
+            <div class="contents_con">
 
-	<div id="container">
-		<div id="sub_con">
-			<div class="contents_con">
-				<div class="contents_con">
-					
-					<div class="search_list_con">
-						<div class="title_con">
-							<span>
-								Search
-							</span>
-						</div>
+                <div class="search_list_con">
+                    <div class="title_con"><span>Search</span></div>
 
-						<div class="contents_con">
-							<div class="search_con">
-								<form action="" method="" autocomplete="off">
-									<div class="input_con">
-										<table cellpadding="0" cellspacing="0">
-											<tbody>
-												<tr>
-													<td align="left" class="input_td">
-														<input type="text" name="" placeholder="제품명을 입력해주세요" class="input" />
-													</td>
-													<td align="left" class="btn_td">
-														<a href="/search_list.html">
-															<img src="/img/sub/search_list_search_btn.svg" alt="검색 버튼" class="fx" />
-														</a>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</form>
-							</div>
+                    <div class="contents_con">
+                        <div class="search_con">
+                            <form id="search_form" autocomplete="off">
+                                <div class="input_con">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left" class="input_td">
+                                                    <input type="text" name="q" id="search_input" placeholder="제품명을 입력해주세요" class="input" />
+                                                </td>
+                                                <td align="left" class="btn_td">
+                                                    <button type="submit" class="fx" style="background:none;border:0;padding:0;">
+                                                        <img src="/img/sub/search_list_search_btn.svg" alt="검색 버튼" class="fx" />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
 
-							<div class="reslut_con">	
-								<div class="reslut_div">
-									<div class="title_con">
-										<span>
-											냄비 및 후라이팬 (7)
-										</span>
-									</div>
+                        <div class="reslut_con">
+                            <div class="reslut_div">
+                                <div class="title_con"><span id="result_title">검색 결과</span></div>
+                                <div class="list_con">
+                                    <ul id="result_list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-									<div class="list_con">
-										<ul>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
+                </div>
 
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        var $form = $('#search_form');
+        var $input = $('#search_input');
+        var $list = $('#result_list');
+        var perPage = 20;
+        var currentPage = 1;
 
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
+        function fetchResults(page){
+            currentPage = page || 1;
+            var keyword = $.trim($input.val());
+            if(!keyword){
+                $list.empty().append('<li class="none_li"><span>검색어를 입력해주세요.</span></li>');
+                return;
+            }
+            $.ajax({
+                url: '/controller/search_process.php',
+                dataType: 'json',
+                data: {
+                    mode: 'search',
+                    q: keyword,
+                    page: currentPage,
+                    per_page: perPage
+                },
+                beforeSend: function(){
+                    $list.empty();
+                },
+                success: function(res){
+                    if(res.list.length){
+                        res.list.forEach(function(item){
+                            var thumb = item.f_thumbnail ? '/userfiles/contents/product/' + item.f_thumbnail : '/img/product/product_sub01_img_con_none_img.png';
+                            $list.append(
+                                '<li>'+
+                                '<a href="/product/product_sub01_view.html?idx=' + item.f_idx + '">' +
+                                '<div class="list_div">'+
+                                '<div class="img_con" style="background-image:url(' + thumb + ')">'+
+                                '<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />'+
+                                '</div>'+
+                                '<div class="text_con"><span>' + item.f_name + '</span></div>'+
+                                '</div>'+
+                                '</a>'+
+                                '</li>'
+                            );
+                        });
+                    } else {
+                        $list.append('<li class="none_li"><span>등록된 게시글이 없습니다.</span></li>');
+                    }
+                }
+            });
+        }
 
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
+        $form.on('submit', function(e){
+            e.preventDefault();
+            fetchResults(1);
+        });
 
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="reslut_div">
-									<div class="title_con">
-										<span>
-											냄비 및 후라이팬 (7)
-										</span>
-									</div>
-
-									<div class="list_con">
-										<ul>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-<?php
-	include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; 
-?>	
+        var urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.has('q')){
+            $input.val(urlParams.get('q'));
+            fetchResults(1);
+        }
+    });
+</script>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/include/footer.html'; ?>
