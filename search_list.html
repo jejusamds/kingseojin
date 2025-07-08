@@ -1,8 +1,35 @@
 <?php
-	$Menu = "05";
-	$sMenu = "05-1";
+        $Menu = "05";
+        $sMenu = "05-1";
+        $keyword = trim($_GET['keyword'] ?? '');
 
-	include $_SERVER['DOCUMENT_ROOT'].'/include/header.html'; 
+        include $_SERVER['DOCUMENT_ROOT'].'/include/header.html';
+
+        $results = [];
+        if ($keyword !== '') {
+            $sql = "SELECT p.f_idx, p.f_name, p.f_thumbnail,
+                           c1.f_idx AS cat1_idx, c1.f_name AS cat1_name,
+                           c2.f_idx AS cat2_idx
+                    FROM df_site_product AS p
+                    LEFT JOIN df_site_category AS c3 ON p.f_cat_idx = c3.f_idx
+                    LEFT JOIN df_site_category AS c2 ON c3.f_parent_idx = c2.f_idx
+                    LEFT JOIN df_site_category AS c1 ON c2.f_parent_idx = c1.f_idx
+                    WHERE p.f_name LIKE :kw
+                    ORDER BY c1.f_order, p.prior DESC";
+            $list = $db->query($sql, ['kw' => '%' . $keyword . '%'], PDO::FETCH_ASSOC);
+            foreach ($list as $row) {
+                $thumb = $row['f_thumbnail']
+                    ? '/userfiles/contents/product/' . $row['f_thumbnail']
+                    : '/img/product/product_sub01_img_con_none_img.png';
+                $results[$row['cat1_idx']]['name'] = $row['cat1_name'];
+                $results[$row['cat1_idx']]['items'][] = [
+                    'idx'  => $row['f_idx'],
+                    'pidx' => $row['cat2_idx'],
+                    'name' => $row['f_name'],
+                    'thumb'=> $thumb
+                ];
+            }
+        }
 ?>
 
 	<div id="container">
@@ -18,203 +45,64 @@
 						</div>
 
 						<div class="contents_con">
-							<div class="search_con">
-								<form action="" method="" autocomplete="off">
-									<div class="input_con">
-										<table cellpadding="0" cellspacing="0">
-											<tbody>
-												<tr>
-													<td align="left" class="input_td">
-														<input type="text" name="" placeholder="제품명을 입력해주세요" class="input" />
-													</td>
-													<td align="left" class="btn_td">
-														<a href="/search_list.html">
-															<img src="/img/sub/search_list_search_btn.svg" alt="검색 버튼" class="fx" />
-														</a>
-													</td>
+                                                        <div class="search_con">
+                                                                <form action="/search_list.html" method="get" autocomplete="off">
+                                                                        <div class="input_con">
+                                                                                <table cellpadding="0" cellspacing="0">
+                                                                                        <tbody>
+                                                                                                <tr>
+                                                                                                        <td align="left" class="input_td">
+                                                                                                                <input type="text" name="keyword" value="<?= htmlspecialchars($keyword, ENT_QUOTES) ?>" placeholder="제품명을 입력해주세요" class="input" />
+                                                                                                        </td>
+                                                                                                        <td align="left" class="btn_td">
+                                                                                                                <button type="submit" class="btn" style="background:none;border:0;padding:0;">
+                                                                                                                <img src="/img/sub/search_list_search_btn.svg" alt="검색 버튼" class="fx" />
+                                                                                                                </button>
+                                                                                                        </td>
 												</tr>
 											</tbody>
 										</table>
 									</div>
 								</form>
 							</div>
+                        <div class="reslut_con">
+<?php if ($keyword !== ''): ?>
+<?php foreach ($results as $cat): ?>
+                            <div class="reslut_div">
+                                <div class="title_con">
+                                    <span><?= htmlspecialchars($cat['name']) ?> (<?= count($cat['items']) ?>)</span>
+                                </div>
+                                <div class="list_con">
+                                    <ul>
+<?php foreach ($cat['items'] as $p): ?>
+                                        <li>
+                                            <a href="/product/product_sub01_view.html?idx=<?= $p['idx'] ?>&pidx=<?= $p['pidx'] ?>">
+                                                <div class="list_div">
+                                                    <div class="img_con" style="background-image:url('<?= $p['thumb'] ?>')">
+                                                        <img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
+                                                    </div>
+                                                    <div class="text_con">
+                                                        <span><?= htmlspecialchars($p['name']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+<?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+<?php endforeach; ?>
+<?php else: ?>
+                            <div class="reslut_div">
+                                <div class="list_con">
+                                    <ul>
+                                        <li class="none_li"><span>검색어를 입력해주세요.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+<?php endif; ?>
+                        </div>
 
-							<div class="reslut_con">	
-								<div class="reslut_div">
-									<div class="title_con">
-										<span>
-											냄비 및 후라이팬 (7)
-										</span>
-									</div>
-
-									<div class="list_con">
-										<ul>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="reslut_div">
-									<div class="title_con">
-										<span>
-											테이블웨어 및 커트러리류 (11)
-										</span>
-									</div>
-
-									<div class="list_con">
-										<ul>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<div class="list_div">
-														<div class="img_con" style="background-image:url('/img/product/product_sub01_img_con_none_img.png')">
-															<img src="/img/product/product_sub01_img_con_blank_img.png" alt="블랭크 이미지" class="fx" />
-														</div>
-
-														<div class="text_con">
-															<span>
-																BMP (Bain-Marie Pot)
-															</span>
-														</div>
-													</div>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
