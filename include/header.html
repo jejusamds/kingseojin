@@ -328,26 +328,26 @@
 			</div>
 
 			<?php if($_SERVER['REMOTE_ADDR'] == '112.220.18.234'){ ?>
-			<div class="search_con">
-				<form action="" method="" autocomplete="off">
-					<div class="input_con">
-						<table cellpadding="0" cellspacing="0">
-							<tbody>
-								<tr>
-									<td align="left" class="input_td">
-										<input type="text" name="" placeholder="제품명을 입력해주세요" class="input" />
-									</td>
-									<td align="left" class="btn_td">
-										<a href="/search_list.html">
-											<img src="/img/main/header_search_btn.svg" alt="검색 버튼" class="fx off" />
-											<img src="/img/main/header_search_btn_on.svg" alt="검색 버튼" class="fx on" />
-										</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</form>
+                        <div class="search_con">
+                                <form action="/search_list.html" method="get" autocomplete="off">
+                                        <div class="input_con">
+                                                <table cellpadding="0" cellspacing="0">
+                                                        <tbody>
+                                                                <tr>
+                                                                        <td align="left" class="input_td">
+                                                                                <input type="text" name="keyword" placeholder="제품명을 입력해주세요" class="input" />
+                                                                        </td>
+                                                                        <td align="left" class="btn_td">
+                                                                                <button type="submit" class="btn" style="background:none;border:0;padding:0;">
+                                                                                <img src="/img/main/header_search_btn.svg" alt="검색 버튼" class="fx off" />
+                                                                                <img src="/img/main/header_search_btn_on.svg" alt="검색 버튼" class="fx on" />
+                                                                                </button>
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                </form>
 			</div>
 			<?php } ?>
 		</div>
@@ -390,26 +390,26 @@
 		</div>
 
 		<?php if($_SERVER['REMOTE_ADDR'] == '112.220.18.234'){ ?>
-		<div class="search_con">
-			<form action="" method="" autocomplete="off">
-				<div class="input_con">
-					<table cellpadding="0" cellspacing="0">
-						<tbody>
-							<tr>
-								<td align="left" class="input_td">
-									<input type="text" name="" placeholder="제품명을 입력해주세요" class="input" />
-								</td>
-								<td align="left" class="btn_td">
-									<a href="/search_list.html">
-										<img src="/img/main/m_header_search_btn_on.svg" alt="검색 버튼" class="fx" />
-									</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</form>
-		</div>
+                <div class="search_con">
+                        <form action="/search_list.html" method="get" autocomplete="off">
+                                <div class="input_con">
+                                        <table cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                        <tr>
+                                                                <td align="left" class="input_td">
+                                                                        <input type="text" name="keyword" placeholder="제품명을 입력해주세요" class="input" />
+                                                                </td>
+                                                                <td align="left" class="btn_td">
+                                                                        <button type="submit" class="btn" style="background:none;border:0;padding:0;">
+                                                                                <img src="/img/main/m_header_search_btn_on.svg" alt="검색 버튼" class="fx" />
+                                                                        </button>
+                                                                </td>
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                </div>
+                        </form>
+                </div>
 		<?php } ?>
 	</div>
 
